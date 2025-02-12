@@ -56,9 +56,21 @@ function plusTwo() {
   console.log(`Cart quantity: ${cartQuantity}`);
 }
 
+function minusTwo() {
+  // cartQuantity = cartQuantity + 2;
+  cartQuantity -= 2;
+  console.log(`Cart quantity: ${cartQuantity}`);
+}
+
 function plusThree() {
   // cartQuantity = cartQuantity + 3;
   cartQuantity += 3;
+  console.log(`Cart quantity: ${cartQuantity}`);
+}
+
+function minusThree() {
+  // cartQuantity = cartQuantity + 3;
+  cartQuantity -= 3;
   console.log(`Cart quantity: ${cartQuantity}`);
 }
 
