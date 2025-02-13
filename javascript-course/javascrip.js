@@ -216,8 +216,24 @@ if (true) {
   console.log('else');
 }
 
-if (15 >= 16) {
+const age = 14
+
+if (age >= 16) {
   console.log('You can drive');
+  console.log('Congrats');
+
+} else if (age >= 14) {
+  console.log('Almost there!');
 } else {
   console.log("You can't drive");
+}
+
+// Rock Paper Scissors
+const randomNumber = Math.random();
+if (randomNumber >= randomNumber && randomNumber < 1 / 3) {
+  console.log('True');
+}
+
+function buttonRock() {
+  console.log(randomNumber);
 }
