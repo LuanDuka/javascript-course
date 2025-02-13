@@ -127,12 +127,60 @@ function numberThree() {
   calculation += '3';
   console.log(calculation);
 }
-function plusButton() {
+function numbnumberFourerOne() {
+  calculation += '4';
+  console.log(calculation);
+}
+function numberFive() {
+  calculation += '5';
+  console.log(calculation);
+}
+function numberSix() {
+  calculation += '6';
+  console.log(calculation);
+}
+function numberSeven() {
+  calculation += '7';
+  console.log(calculation);
+}
+function numberEight() {
+  calculation += '8';
+  console.log(calculation);
+}
+function numberNine() {
+  calculation += '9';
+  console.log(calculation);
+}
+function numberZero() {
+  calculation += '0';
+  console.log(calculation);
+}
+function minusButton() {
   calculation += ' + ';
+  console.log(calculation);
+}
+function plusButton() {
+  calculation += ' - ';
+  console.log(calculation);
+}
+function timesButton() {
+  calculation += ' * ';
+  console.log(calculation);
+}
+function dividedButton() {
+  calculation += ' / ';
+  console.log(calculation);
+}
+function doteButton() {
+  calculation += '.';
   console.log(calculation);
 }
 function equalButton() {
   eval(calculation);
   calculation = eval(calculation);
+  console.log(calculation);
+}
+function clearButton() {
+  calculation = "";
   console.log(calculation);
 }
