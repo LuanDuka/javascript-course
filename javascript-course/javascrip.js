@@ -13,12 +13,12 @@ console.log("Welcome!");
 let variable1 = 3;
 console.log(variable1);
 
-const calculation = 2 + 2;
-console.log(calculation);
-console.log(calculation + 2);
+// const calculation = 2 + 2;
+// console.log(calculation);
+// console.log(calculation + 2);
 
-const result = calculation + 2;
-console.log(result);
+// const result = calculation + 2;
+// console.log(result);
 
 const message = 'hello';
 console.log(message);
@@ -113,3 +113,26 @@ console.log(`Cost of food: $${cost}`);
 let totalCost = cost + cost * tax;
 console.log(`Tax (10%): $${tax}`);
 console.log(`Total cost: $${totalCost}`);
+
+let calculation = "";
+function numberOne() {
+  calculation += '1';
+  console.log(calculation);
+}
+function numberTwo() {
+  calculation += '2';
+  console.log(calculation);
+}
+function numberThree() {
+  calculation += '3';
+  console.log(calculation);
+}
+function plusButton() {
+  calculation += ' + ';
+  console.log(calculation);
+}
+function equalButton() {
+  eval(calculation);
+  calculation = eval(calculation);
+  console.log(calculation);
+}
