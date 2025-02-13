@@ -118,70 +118,88 @@ let calculation = "";
 function numberOne() {
   calculation += '1';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberTwo() {
   calculation += '2';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberThree() {
   calculation += '3';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
-function numbnumberFourerOne() {
+function numberFour() {
   calculation += '4';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberFive() {
   calculation += '5';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberSix() {
   calculation += '6';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberSeven() {
   calculation += '7';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberEight() {
   calculation += '8';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberNine() {
   calculation += '9';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function numberZero() {
   calculation += '0';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function minusButton() {
-  calculation += ' + ';
-  console.log(calculation);
-}
-function plusButton() {
   calculation += ' - ';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
+}
+function plusButton() {
+  calculation += ' + ';
+  console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function timesButton() {
   calculation += ' * ';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function dividedButton() {
   calculation += ' / ';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function doteButton() {
   calculation += '.';
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function equalButton() {
   eval(calculation);
   calculation = eval(calculation);
   console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function clearButton() {
   calculation = "";
-  console.log(calculation);
+  // console.log(calculation);
+  document.getElementById("texto").innerHTML = "calculation";
 }
 
+document.getElementById("texto").innerHTML = calculation;
