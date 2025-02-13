@@ -230,10 +230,32 @@ if (age >= 16) {
 
 // Rock Paper Scissors
 const randomNumber = Math.random();
-if (randomNumber >= randomNumber && randomNumber < 1 / 3) {
-  console.log('True');
+
+let computerMove = '';
+
+if (randomNumber >= 0 && randomNumber < 1 / 3) {
+  computerMove = 'Rock';
+} else if (randomNumber > 2 / 3) {
+  computerMove = 'Scissor';
+} else {
+  computerMove = 'Paper';
 }
 
-function buttonRock() {
-  console.log(randomNumber);
+let result = '';
+
+
+if (computerMove === 'Rock') {
+  result = 'Tie.';
+} else if (computerMove === 'Scissor') {
+  result = 'You win.';
+} else {
+  result = 'You Losse.';
 }
+console.log(`You picked rock. Computer picked ${computerMove}. ${result}`);
+
+function choice(playerMove) {
+
+}
+
+console.log(true || false); //or operator
+console.log(!false);//not operator
