@@ -184,3 +184,4 @@ function clearButton() {
   calculation = "";
   console.log(calculation);
 }
+
