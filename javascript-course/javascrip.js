@@ -199,7 +199,6 @@ function equalButton() {
 function clearButton() {
   calculation = "";
   // console.log(calculation);
-  document.getElementById("texto").innerHTML = "calculation";
+  document.getElementById("texto").innerHTML = "";
 }
 
-document.getElementById("texto").innerHTML = calculation;
