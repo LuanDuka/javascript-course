@@ -202,3 +202,22 @@ function clearButton() {
   document.getElementById("texto").innerHTML = "";
 }
 
+// Lesson 06
+console.log(typeof true);
+false
+
+console.log(3 < 5);
+
+console.log(5 === '5.00');
+
+if (true) {
+  console.log('hello');
+} else {
+  console.log('else');
+}
+
+if (15 >= 16) {
+  console.log('You can drive');
+} else {
+  console.log("You can't drive");
+}
