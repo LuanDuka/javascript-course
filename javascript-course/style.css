@@ -19,3 +19,26 @@
     background-color: rgb(238, 159, 12);
     border-color: orange;
 }
+
+button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    margin: 3px;
+    font-size: 25px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+}
+
+.button {
+    background-color: orange;
+}
+
+.clear {
+    font-size: 20px;
+}
+
+.backGround {
+    background-color: black;
+}
