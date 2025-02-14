@@ -202,3 +202,60 @@ function clearButton() {
   document.getElementById("texto").innerHTML = "";
 }
 
+// Lesson 06
+console.log(typeof true);
+false
+
+console.log(3 < 5);
+
+console.log(5 === '5.00');
+
+if (true) {
+  console.log('hello');
+} else {
+  console.log('else');
+}
+
+const age = 14
+
+if (age >= 16) {
+  console.log('You can drive');
+  console.log('Congrats');
+
+} else if (age >= 14) {
+  console.log('Almost there!');
+} else {
+  console.log("You can't drive");
+}
+
+// Rock Paper Scissors
+const randomNumber = Math.random();
+
+let computerMove = '';
+
+if (randomNumber >= 0 && randomNumber < 1 / 3) {
+  computerMove = 'Rock';
+} else if (randomNumber > 2 / 3) {
+  computerMove = 'Scissor';
+} else {
+  computerMove = 'Paper';
+}
+
+let result = '';
+
+
+if (computerMove === 'Rock') {
+  result = 'Tie.';
+} else if (computerMove === 'Scissor') {
+  result = 'You win.';
+} else {
+  result = 'You Losse.';
+}
+console.log(`You picked rock. Computer picked ${computerMove}. ${result}`);
+
+function choice(playerMove) {
+
+}
+
+console.log(true || false); //or operator
+console.log(!false);//not operator
