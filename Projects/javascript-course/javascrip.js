@@ -111,11 +111,16 @@ let cost = coffee + bagels + soup;
 console.log(`Cost of food: $${cost}`);
 
 let totalCost = cost + cost * tax;
-console.log(`Tax (10%): $${tax}`);
+console.log(`Tax(10 %): $${tax}`);
 console.log(`Total cost: $${totalCost}`);
 
+//Calculator project
 let calculation = "";
+
 function numberOne() {
+  //não pode ser um número
+  //pq se não vai somar o número com a variável
+  //e não digitar na frente da variável
   calculation += '1';
   console.log(calculation);
   document.getElementById("texto").innerHTML = calculation;
@@ -165,31 +170,43 @@ function numberZero() {
   console.log(calculation);
   document.getElementById("texto").innerHTML = calculation;
 }
+
 function minusButton() {
-  calculation += ' - ';
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
+    calculation += ' - ';
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  }
 }
 function plusButton() {
-  calculation += ' + ';
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
+    calculation += ' + ';
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  }
 }
 function timesButton() {
-  calculation += ' * ';
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
+    calculation += ' * ';
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  }
 }
 function dividedButton() {
-  calculation += ' / ';
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
+    calculation += ' / ';
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  }
 }
 function doteButton() {
-  calculation += '.';
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
+    calculation += ' . ';
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  }
 }
+
 function equalButton() {
   eval(calculation);
   calculation = eval(calculation);
@@ -265,7 +282,7 @@ function choice(playerMove) {
 
 
   // Shows result in the page
-  document.getElementById('result').innerHTML = `You picked: ${playerMove}. Computer picked ${computerMove}. ${result}`;
+  document.getElementById('result').innerHTML = `You picked: ${playerMove}.Computer picked ${computerMove}.${result}`;
 
   //Score result
 
@@ -277,7 +294,7 @@ function choice(playerMove) {
     lossScore++;
   }
   // Display updated scores
-  document.getElementById('scorePoints').innerHTML = `Wins: ${winScore}. Losses ${lossScore}. Ties ${tieScore}`;
+  document.getElementById('scorePoints').innerHTML = `Wins: ${winScore}.Losses ${lossScore}.Ties ${tieScore}`;
 
 }
 
@@ -287,10 +304,10 @@ function resetScore() {
   lossScore = 0;
   tieScore = 0;
   // Update the displayed scores
-  document.getElementById('scorePoints').innerHTML = `Wins: ${winScore}. Losses ${lossScore}. Ties ${tieScore}`;
+  document.getElementById('scorePoints').innerHTML = `Wins: ${winScore}.Losses ${lossScore}.Ties ${tieScore}`;
 
 }
-// document.getElementById('scorePoints').innerHTML = `Wins: ${winScore}. Losses ${lossScore}. Ties ${tieScore}`; >> PARA NÃO INTERFERIR NO EXERCÍCIO 6a
+// document.getElementById('scorePoints').innerHTML = `Wins: ${ winScore }.Losses ${ lossScore }.Ties ${ tieScore }`; >> PARA NÃO INTERFERIR NO EXERCÍCIO 6a
 
 
 console.log(true || false); //or operator
