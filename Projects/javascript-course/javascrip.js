@@ -399,11 +399,12 @@ if (!isHoliday && (discountAge <= 6 || discountAge >= 65)) {
 
 //Exercises Lesson 6f to 6j
 
-let fliped = "";
-let resultCoin = "";
+
 
 function guess(playerChoice) {
   const randomNumber = Math.random();
+  let fliped = "";
+  let resultCoin = "";
 
   if (randomNumber < 0.5) {
     fliped = 'Heads';
@@ -491,5 +492,31 @@ function addItemToCart(itemAdd) {
     console.log(`Cart Quantity: ${cartItemQuantity}`);
   }
     */
+  console.log(`Cart Quantity: ${cartItemQuantity}`);
   document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 }
+
+//function to remove itens from the cart'
+//when the number going to be negative, it turn zero
+function removeItemFromCart(itemRemove) {
+  if (cartItemQuantity - itemRemove < 0) {
+    alert('Not enough items in the cart');
+  } else {
+    cartItemQuantity -= itemRemove;
+  }
+  console.log(`Cart Quantity: ${cartItemQuantity}`);
+  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+}
+
+function resetCartButton() {
+  cartItemQuantity = 0;
+  console.log(`Cart Quantity: ${cartItemQuantity}`);
+  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+}
+
+//Lesson 07 - Parameter
+function calculateTax(cost, taxPercent = 0.1) {
+  console.log(cost * taxPercent);
+}
+calculateTax(2000, 0.2);
+calculateTax(5000);
