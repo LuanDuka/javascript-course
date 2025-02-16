@@ -115,7 +115,7 @@ console.log(`Tax(10 %): $${tax}`);
 console.log(`Total cost: $${totalCost}`);
 
 //Calculator project
-let calculation = "";
+let calculation = " ";
 
 function numberOne() {
   //não pode ser um número
@@ -172,46 +172,60 @@ function numberZero() {
 }
 
 function minusButton() {
+  calculation = String(calculation); // Garantir que calculation é string
   if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
     calculation += ' - ';
     console.log(calculation);
     document.getElementById("texto").innerHTML = calculation;
   }
 }
+
 function plusButton() {
+  calculation = String(calculation);
   if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
     calculation += ' + ';
     console.log(calculation);
     document.getElementById("texto").innerHTML = calculation;
   }
 }
+
 function timesButton() {
+  calculation = String(calculation);
   if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
     calculation += ' * ';
     console.log(calculation);
     document.getElementById("texto").innerHTML = calculation;
   }
 }
+
 function dividedButton() {
+  calculation = String(calculation);
   if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
     calculation += ' / ';
     console.log(calculation);
     document.getElementById("texto").innerHTML = calculation;
   }
 }
+
 function doteButton() {
+  calculation = String(calculation);
   if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
-    calculation += ' . ';
+    calculation += '.';
     console.log(calculation);
     document.getElementById("texto").innerHTML = calculation;
   }
 }
 
+
 function equalButton() {
-  eval(calculation);
-  calculation = eval(calculation);
-  console.log(calculation);
-  document.getElementById("texto").innerHTML = calculation;
+  try {
+    calculation = String(eval(calculation)); // Garantir que calculation sempre seja string
+    console.log(calculation);
+    document.getElementById("texto").innerHTML = calculation;
+  } catch (error) {
+    console.log("Erro na expressão:", error);
+    document.getElementById("texto").innerHTML = "Erro";
+  }
 }
 function clearButton() {
   calculation = "";
