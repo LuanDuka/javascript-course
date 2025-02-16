@@ -208,24 +208,33 @@ function dividedButton() {
 }
 
 function doteButton() {
-  calculation = String(calculation);
-  if (!["/", "*", "-", "+", "."].some(op => calculation.endsWith(` ${op} `))) {
-    calculation += '.';
-    console.log(calculation);
-    document.getElementById("texto").innerHTML = calculation;
+  calculation = String(calculation).trim(); // Garantir que calculation é uma string e remover espaços extras
+  const lastChar = calculation.slice(-1); // Último caractere da expressão
+
+  // Lista de operadores
+  const operators = ["/", "*", "-", "+"];
+
+  // Se calculation estiver vazio ou o último caractere for um operador, adiciona "0."
+  if (calculation === "" || operators.includes(lastChar)) {
+    calculation += "0.";
   }
+  // Verifica se já existe um ponto na última sequência numérica
+  else {
+    const lastNumber = calculation.split(/[\s/*\-+]/).pop(); // Captura o último número antes de um operador
+    if (!lastNumber.includes(".")) { // Se ainda não tem um ponto, pode adicionar
+      calculation += ".";
+    }
+  }
+
+  console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 
-
 function equalButton() {
-  try {
-    calculation = String(eval(calculation)); // Garantir que calculation sempre seja string
-    console.log(calculation);
-    document.getElementById("texto").innerHTML = calculation;
-  } catch (error) {
-    console.log("Erro na expressão:", error);
-    document.getElementById("texto").innerHTML = "Erro";
-  }
+  eval(calculation);
+  calculation = eval(calculation);
+  console.log(calculation);
+  document.getElementById("texto").innerHTML = calculation;
 }
 function clearButton() {
   calculation = "";
