@@ -91,6 +91,7 @@ function resetCart() {
   console.log('Cart was reset: ' + cartQuantity);
 }
 
+
 const variable2 = 3;
 // variable2 = 5;
 console.log(variable2);
@@ -416,7 +417,7 @@ function guess(playerChoice) {
 }
 
 //Challenge 6j Ternary Operators
-/* MAKED BY MYSELF 
+/* MAKED BY MYSELF
 const randomNumber = Math.random();
 let flipCoin = '';
 let coinResult = ''
@@ -453,3 +454,5 @@ function guess(myGuess) {
   console.log(textMessage);
 }
  */
+
+//Challenge Exercise 6k
