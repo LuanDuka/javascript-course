@@ -382,16 +382,19 @@ if (currentHour >= 6 && currentHour <= 12) {
   greeting = 'Good evening';
 }
 
-document.getElementById('exercise6a').innerHTML = `${greeting}, ${myName}! It's exactly ${currentHour}.`;
+console.log(`${greeting}, ${myName}! It's exactly ${currentHour}.`);
+// document.getElementById('exercise6a').innerHTML = `${greeting}, ${myName}! It's exactly ${currentHour}.`;
 
 //Exercises Lesson 6d to 6e
 const discountAge = 65;
 const isHoliday = false;
 
 if (!isHoliday && (discountAge <= 6 || discountAge >= 65)) {
-  document.getElementById('yourAge').innerHTML = 'Congratulation, you recive a discount!';
+  console.log('Congratulation, you recive a discount!');
+  // document.getElementById('yourAge').innerHTML = 'Congratulation, you recive a discount!';
 } else {
-  document.getElementById('yourAge').innerHTML = "Sorry, you can't receive a discount";
+  console.log("Sorry, you can't receive a discount");
+  // document.getElementById('yourAge').innerHTML = "Sorry, you can't receive a discount";
 }
 
 //Exercises Lesson 6f to 6j
@@ -456,3 +459,31 @@ function guess(myGuess) {
  */
 
 //Challenge Exercise 6k
+let cartItemQuantity = 0;
+
+function showItemQuantity() {
+  console.log(`Cart Quantity: ${cartItemQuantity}`);
+  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+
+};
+function addItemToCart(itemAdd) {
+  if (cartItemQuantity + itemAdd > 10) {
+    alert('The cart is full');
+  } else if (itemAdd === 1) {
+    cartItemQuantity++;
+    console.log(`Cart Quantity: ${cartItemQuantity}`);
+  } else if (itemAdd === 2) {
+    cartItemQuantity += 2;
+    console.log(`Cart Quantity: ${cartItemQuantity}`);
+  } else if (itemAdd === 3) {
+    cartItemQuantity += 3;
+    console.log(`Cart Quantity: ${cartItemQuantity}`);
+  } else if (itemAdd === 4) {
+    cartItemQuantity += 4;
+    console.log(`Cart Quantity: ${cartItemQuantity}`);
+  } else if (itemAdd === 5) {
+    cartItemQuantity += 5;
+    console.log(`Cart Quantity: ${cartItemQuantity}`);
+  }
+  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+}

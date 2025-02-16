@@ -4,50 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Quantity</title>
+    <title>Cart Quantity Copy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <p>
-        Cart Quantity
+        Cart Quantity COPY
     </p>
+
     <p>
-        <button class="show-quantity-button" onclick="showQuantity()">
+        <button class="show-quantity-button" onclick="showItemQuantity()">
             Show Quantity
         </button>
     </p>
+    <p id="littleCart"></p>
     <p>
-        <button class="add-to-cart-button" onclick="addToCart()">
+        <button class="add-to-cart-button" onclick="addItemToCart(1)">
             Add to Cart
         </button>
 
-        <button class="plusTwo-button" onclick="plusTwo()">
+        <button class="plusTwo-button" onclick="addItemToCart(2)">
             +2
         </button>
-        <button class="plusthree-button" onclick="plusThree()">
+        <button class="plusthree-button" onclick="addItemToCart(3)">
             +3
         </button>
-        <button class="plusthree-button" onclick="plusFour()">
+        <button class="plusthree-button" onclick="addItemToCart(4)">
             +4
         </button>
-        <button class="plusthree-button" onclick="plusFive()">
+        <button class="plusthree-button" onclick="addItemToCart(5)">
             +5
         </button>
     </p>
     <p>
-        <button class="remove-from-cart-button" onclick="RemoveFromCart()">
+        <button class="remove-from-cart-button" onclick="RemoveItemFromCart('1')">
             Remove from Cart
         </button>
-        <button class="minusTwo-button" onclick="minusTwo()">
+        <button class="minusTwo-button" onclick="RemoveItemFromCart('2')">
             -2
         </button>
-        <button class="minussthree-button" onclick="minusThree()">
+        <button class="minussthree-button" onclick="RemoveItemFromCart('3')">
             -3
         </button>
     </p>
     <p>
-        <button class="reset-cart-button" onclick="resetCart()">
+        <button class="reset-cart-button" onclick="resetItemCart()">
             Reset Cart
         </button>
     </p>
