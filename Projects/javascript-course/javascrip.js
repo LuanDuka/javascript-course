@@ -469,7 +469,12 @@ function showItemQuantity() {
 function addItemToCart(itemAdd) {
   if (cartItemQuantity + itemAdd > 10) {
     alert('The cart is full');
-  } else if (itemAdd === 1) {
+  } else {
+    cartItemQuantity += itemAdd;
+  }
+
+  /*
+  else if (itemAdd === 1) {
     cartItemQuantity++;
     console.log(`Cart Quantity: ${cartItemQuantity}`);
   } else if (itemAdd === 2) {
@@ -485,5 +490,6 @@ function addItemToCart(itemAdd) {
     cartItemQuantity += 5;
     console.log(`Cart Quantity: ${cartItemQuantity}`);
   }
+    */
   document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 }
