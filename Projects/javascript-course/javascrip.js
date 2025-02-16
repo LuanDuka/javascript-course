@@ -269,7 +269,7 @@ if (age >= 16) {
 }
 
 // Rock Paper Scissors Lesson 06
-
+/*
 let winScore = 0;
 let lossScore = 0;
 let tieScore = 0;
@@ -332,7 +332,7 @@ function resetScore() {
 
 }
 // document.getElementById('scorePoints').innerHTML = `Wins: ${ winScore }.Losses ${ lossScore }.Ties ${ tieScore }`; >> PARA NÃO INTERFERIR NO EXERCÍCIO 6a
-
+*/
 
 console.log(true || false); //or operator
 console.log(!false);//not operator
@@ -357,7 +357,7 @@ console.log(shortCut);
 shortCut = 5 ? 'truthy' : 'falsy';
 console.log(shortCut);
 
-false && console.log('hello');
+true && console.log('hello');
 
 const mssg = 5 && 'hello';
 console.log(mssg);
@@ -365,6 +365,91 @@ console.log(mssg);
 const crrnc = undefined || 'USD';
 console.log(crrnc);
 
-//Exercises Lesson 6
-const hour = new Date();
-// document.getElementById('exercise6a').innerHTML = hour;
+//Exercises Lesson 6a to 6c
+//get the current hour of the day
+const currentHour = new Date().getHours();
+console.log(currentHour);
+
+let myName = 'Luan';
+let greeting = "";
+
+if (currentHour >= 6 && currentHour <= 12) {
+  greeting = 'Good mornign';
+} else if (currentHour >= 13 && currentHour <= 17) {
+  greeting = 'Good afternoon';
+} else {
+  greeting = 'Good evening';
+}
+
+document.getElementById('exercise6a').innerHTML = `${greeting}, ${myName}! It's exactly ${currentHour}.`;
+
+//Exercises Lesson 6d to 6e
+const discountAge = 65;
+const isHoliday = false;
+
+if (!isHoliday && (discountAge <= 6 || discountAge >= 65)) {
+  document.getElementById('yourAge').innerHTML = 'Congratulation, you recive a discount!';
+} else {
+  document.getElementById('yourAge').innerHTML = "Sorry, you can't receive a discount";
+}
+
+//Exercises Lesson 6f to 6j
+
+let fliped = "";
+let resultCoin = "";
+
+function guess(playerChoice) {
+  const randomNumber = Math.random();
+
+  if (randomNumber < 0.5) {
+    fliped = 'Heads';
+  } else {
+    fliped = 'Tails';
+  }
+
+  if (playerChoice === fliped) {
+    resultCoin = 'Win';
+  } else {
+    resultCoin = 'Loss';
+  }
+  document.getElementById('coinFlip').innerHTML = `You ${resultCoin}. The coin ${fliped}`;
+}
+
+//Challenge 6j Ternary Operators
+/* MAKED BY MYSELF 
+const randomNumber = Math.random();
+let flipCoin = '';
+let coinResult = ''
+let myGuess = 'Tails';
+
+flipCoin = (randomNumber < 0.5) ? (coinResult = 'Heads') : (coinResult = 'Tails');
+console.log(coinResult);
+
+challenge = (coinResult === myGuess) ? "Right guess, it's a win!" : "Wrong guess, it's a loss!"
+console.log(challenge);
+*/
+
+/* MAKED BY GPT, BUT I FIXED SOME BUGS TO RUN PROPERLY
+let randomNumber = '';
+let coinResult = '';
+let textMessage = '';
+
+function guess(myGuess) {
+  // Gera um número aleatório entre 0 e 1
+  randomNumber = Math.random();
+
+  // Define o resultado da moeda baseado no número gerado
+  coinResult = (randomNumber < 0.5) ? "Heads" : "Tails";
+
+  // Verifica se a escolha do usuário está correta
+  textMessage = (coinResult === myGuess)
+    ? `🎉 Right guess! It's ${coinResult}!`
+    : `❌ Wrong guess! It was ${coinResult}.`;
+
+  // Exibe o resultado na página
+  document.getElementById("coinFlip").innerHTML = textMessage;
+
+  // Exibe no console também
+  console.log(textMessage);
+}
+ */
