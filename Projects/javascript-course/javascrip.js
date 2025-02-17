@@ -520,3 +520,91 @@ function calculateTax(cost, taxPercent = 0.1) {
 }
 calculateTax(2000, 0.2);
 calculateTax(5000);
+//7a - 7c
+//(!name) to check if 'name' is undefined, instead of (name === undefined)
+function greet(name) {
+  if (!name) {
+    console.log('Hi there!');
+  } else {
+    console.log('Hello ' + name + '!');
+  }
+}
+greet();
+//7d
+function convertToFahrenheit(celsius) {
+  return ((celsius * 9 / 5) + 32);
+}
+console.log(convertToFahrenheit(25));
+//7e
+function convertToCelsius(fahrenheit) {
+  return ((fahrenheit - 32) * 5 / 9);
+}
+console.log(convertToCelsius(86));
+//7f 
+function convertTemperature(degrees, unit) {
+  if (unit === 'C') {
+    const result = convertToFahrenheit(degrees);
+    return `${result}F`;
+  } else if (unit === 'F') {
+    const result = convertToCelsius(degrees);
+    return `${result}C`;
+  }
+}
+console.log(convertTemperature(25, 'C'));
+console.log(convertTemperature(86, 'F'));
+//7g km or miles (1 mile is 1.6 km)
+//   (1 mile = 5280 ft, 1 km = 3281 ft)
+function convertLength(length, from, to) {
+  if (from !== 'km' && from !== 'miles' && from !== 'ft') {
+    return `Invalid unit: ${from}`;
+  } else if (to !== 'km' && to !== 'miles' && to !== 'ft') {
+    return `Invalid unit: ${from}`;
+  }
+  if (from === 'miles' && to === 'km') {
+    const result = (length * 1.6);
+    return `${result} km`;
+
+  } else if (from === 'km' && to === 'miles') {
+    const result = (length / 1.6);
+    return `${result} miles`;
+
+  } else if ((from == 'km' && to === 'km')) {
+    const result = length;
+    return (`${result} km`);
+  } else if ((from == 'miles' && to === 'miles')) {
+    const result = length;
+    return (`${result} miles`);
+  } else if ((from == 'ft' && to === 'ft')) {
+    const result = length;
+    return (`${result} ft`);
+
+  } else if (from === 'miles' && to === 'ft') {
+    const result = (length * 5280);
+    return (`${result} ft`);
+
+  } else if (from === 'ft' && to === 'miles') {
+    const result = (length / 5280);
+    return (`${result} miles`);
+
+  } else if (from === 'km' && to === 'ft') {
+    const result = (length * 3281);
+    return (`${result} ft`);
+
+  } else if (from === 'ft' && to === 'km') {
+    const result = length / 3281;
+    return (`${result} km`);
+  }
+
+}
+
+console.log(convertLength(50, 'miles', 'km'));
+console.log(convertLength(32, 'km', 'miles'));
+console.log(convertLength(50, 'km', 'km'));
+console.log(convertLength(5, 'miles', 'ft'));
+console.log(convertLength(26400, 'ft', 'miles'));
+console.log(convertLength(5, 'km', 'ft'));
+console.log(convertLength(16405, 'ft', 'km'));
+console.log(convertLength(16405, 'lbs', 'km'));
+
+
+//Lesson 08 - Objects
