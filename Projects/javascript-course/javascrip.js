@@ -115,7 +115,7 @@ let totalCost = cost + cost * tax;
 console.log(`Tax(10 %): $${tax}`);
 console.log(`Total cost: $${totalCost}`);
 
-//Calculator project
+//Lesson 05 - Calculator project
 let calculation = " ";
 
 function numberOne() {
@@ -568,17 +568,8 @@ function convertLength(length, from, to) {
     const result = (length / 1.6);
     return `${result} miles`;
 
-  } else if ((from == 'km' && to === 'km')) {
-    const result = length;
-    return (`${result} km`);
-  } else if ((from == 'miles' && to === 'miles')) {
-    const result = length;
-    return (`${result} miles`);
-  } else if ((from == 'ft' && to === 'ft')) {
-    const result = length;
-    return (`${result} ft`);
-
-  } else if (from === 'miles' && to === 'ft') {
+  }
+  else if (from === 'miles' && to === 'ft') {
     const result = (length * 5280);
     return (`${result} ft`);
 
@@ -593,6 +584,21 @@ function convertLength(length, from, to) {
   } else if (from === 'ft' && to === 'km') {
     const result = length / 3281;
     return (`${result} km`);
+  }
+  /* esse é o que eu fiz, pois não consegui fazer o from === to funcionar
+   else if ((from == 'km' && to === 'km')) {
+    const result = length;
+    return (`${result} km`);
+  } else if ((from == 'miles' && to === 'miles')) {
+    const result = length;
+    return (`${result} miles`);
+  } else if ((from == 'ft' && to === 'ft')) {
+    const result = length;
+    return (`${result} ft`);
+  } 
+  */
+  else if (from === to) {
+    return `${length} ${to}`;
   }
 
 }
