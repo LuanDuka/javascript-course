@@ -116,6 +116,8 @@ const product2 = {
     count: 87
   },
   fun: function function1() {
+    //A function is another type of value
+    //Function inside object = Method > Like console[object].log[function]() and Math.random()
     console.log('function inside object');
   }
 }
@@ -133,13 +135,21 @@ product2.fun();
 console.log(typeof console);
 console.log(typeof console.log);
 
+//Built-in JSON Object
+//Use JSON when we send data between computers or store data
 //Convert to JSON
 console.log(JSON.stringify(product2));//JSON do not suport function
 console.log(typeof JSON.stringify(product2));
 
 const jsonString = JSON.stringify(product2);
-//Convert to Javascript
+//Convert back to Javascript
 JSON.parse(jsonString);
 console.log(JSON.parse(jsonString));
 
-//Local Storeg
+//Local Storeg: localStorage use to save values more permanently
+//variables are temporary, if refresh or close the page, they are deleted
+
+//Falsy Values > false   0   ''   NaN   undefined   null
+//null=intentinally want something to be empty
+
+//Auto-Boxing 
