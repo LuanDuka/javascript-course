@@ -39,11 +39,30 @@ console.log(product);
 
 //Update Rock Paper Scissor
 
-const score = {
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+}
+//Get the value out and input default value after ||
+let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
 };
+
+//quando atualiza a página após resestar, score é igual a null
+//ou usar (!score) é igual a (score === null)
+/*
+if (score === null) {
+  score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+  }
+}
+*/
 
 function choice(playerMove) {
   // Generate a random number
@@ -78,18 +97,15 @@ function choice(playerMove) {
   } else if (result === 'Tie.') {
     score.ties += 1;
   }
-
+  //Saving the score, only store string
+  localStorage.setItem('score', JSON.stringify(score));
 
   console.log(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins:${score.wins}. Losses ${score.losses}. Ties ${score.ties}!`)
 
 }
 
-function resetScore() {
-  score.wins = 0;
-  score.losses = 0;
-  score.ties = 0;
-}
+
 
 const product2 = {
   name: 'shirt',
