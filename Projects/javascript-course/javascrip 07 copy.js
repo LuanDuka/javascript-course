@@ -28,7 +28,7 @@ console.log(typeof product);
 console.log(product.name);
 console.log(product.price);
 
-product.name = 'cotton socks';
+product.name = 'cotton socks';//to change the value of the property
 console.log(product);
 
 product.newProperty = true;
@@ -111,7 +111,7 @@ const product2 = {
   name: 'shirt',
   // ['delivery - time']: '1 day'
   'delivery - time': '1 day',
-  rating: {
+  rating: {//Nested Object: an object inside other object
     stars: 4.5,
     count: 87
   },
@@ -121,9 +121,11 @@ const product2 = {
 }
 
 console.log(product2);
-console.log(product2.name);
-console.log(product2['name']);
-// console.log(product2.delivery - time);
+console.log(product2.name);//Dot Notation
+console.log(product2['name']);//Bracket Notation: lets us use properties that don't work with dot notation
+//In Bracket Notation we can use variable and calculation
+// console.log(product2.delivery - time); << in this exemplo javascript thinks that dash "-" is igual minus trying to do math
+// and give us a error
 console.log(product2['delivery - time']);
 console.log(product2.rating.count);
 product2.fun();
