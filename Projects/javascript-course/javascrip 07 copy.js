@@ -1,4 +1,6 @@
-let calculation = '';
+let calculation = JSON.parse(localStorage.getItem('calculation'));
+
+
 
 function updateCalculation(value) {
   if (value === '=') {
@@ -16,6 +18,8 @@ function updateCalculation(value) {
 
   }
 
+  localStorage.setItem('calculation', JSON.stringify(calculation));
+  // console.log(JSON.stringify(calculation));
 }
 
 //Lesson 08 - Objects
@@ -244,7 +248,52 @@ const product1a = {
 };
 const product1b = {
   name: 'sucks',
-  price: 3090
+  price: 1090
 };
 
 console.log(comparePrice(product1a, product1b));
+
+//8e
+/* I maded
+function isSameProduct(product2a, product2b) {
+  if (product2a.name === product2b.name && product2a.price === product2b.price) {
+    return true;
+  } else {
+    return false;
+  }
+}
+*/
+// Here is an alternative solution that uses less code.
+function isSameProduct(product2a, product2b) {
+  return (
+    product2a.name === product2b.name &&
+    product2a.price === product2b.price
+  );
+}
+
+const product2a = {
+  name: 'gloves',
+  price: 2095
+}
+
+const product2b = {
+  name: 'gloves',
+  price: 2095
+}
+
+const product2c = {
+  name: 'basketball',
+  price: 2095
+}
+
+console.log(isSameProduct(product2a, product2b));
+console.log(isSameProduct(product2a, product2c));
+
+//8f
+console.log('Hello'.toLowerCase());
+
+//8g
+console.log('Hello'.repeat(5));
+
+//8h
+
