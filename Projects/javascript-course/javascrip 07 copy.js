@@ -152,4 +152,99 @@ console.log(JSON.parse(jsonString));
 //Falsy Values > false   0   ''   NaN   undefined   null
 //null=intentinally want something to be empty
 
-//Auto-Boxing 
+//Auto-Boxing: don't work with 'null.property' or 'undefined.method()'
+console.log('hello'.length);
+console.log('hello'.toUpperCase()); //'hello' scpecial object
+
+//Objects are references: the actual value is created in computer's memory
+//This variable gets the reference that points to location in the computer memory
+const object1 = {
+  message: 'hello'
+};
+//Don't make a copy off the object, just copy the reference
+//Copy by Reference
+const object2 = object1;
+
+object1.message = 'Good job!';
+console.log(object1);
+console.log(object2);
+
+//We can't compare objects directly
+const object3 = {
+  message: 'Good job!'
+};
+//Compares the references, not the value inside
+console.log(object3 === object1);
+//They point to the same references
+console.log(object2 === object1);
+
+//Shortcuts for Objects
+const object4 = {
+  message: 'Good job!',
+  price: 799
+};
+//If the variable name and property name are the same, we have a Shortcuts for this
+/*const message = object4.message;*/
+
+//Destructuring: to use a shortcuts
+//Easier way to take properties out of an object
+//This will take the messagem property out of object4
+//and save it in a variable
+const { message, price } = object4;
+//Both make the same thing
+
+console.log(message);
+console.log(price);
+
+//Shorthand Property
+const object5 = {
+  //message: message
+  message
+};
+console.log(object5);
+
+//Shorthand Method
+const object6 = {
+  message,
+  // method: function function2() {
+  //   console.log('method');
+  // }
+  method() {
+    console.log('method');
+  }
+};
+console.log(object6);
+object6.method();
+
+//Exercises - Objects 8a
+const productAmazon = {
+  name: 'basketball',
+  price: 2095
+};
+console.log(productAmazon);
+productAmazon.price += 500;//8b
+console.log(productAmazon);
+productAmazon['delivery-time'] = '3 days';//8c add property with minus sign
+console.log(productAmazon);
+
+
+
+//Takes 2 products and return the less expensive product
+function comparePrice(product1a, product1b) {
+  if (product1a.price < product1b.price) {//define the property needed > price
+    return product1a;//the result after calculation
+  } else {
+    return product1b;
+  }
+}
+
+const product1a = {
+  name: 'basketball',
+  price: 2095
+};
+const product1b = {
+  name: 'sucks',
+  price: 3090
+};
+
+console.log(comparePrice(product1a, product1b));
