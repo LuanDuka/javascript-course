@@ -435,3 +435,22 @@ function subscribe() {
   }
 }
 
+function calculateTotal() {
+  const inputElement = document.querySelector('.js-cost-input');
+  let cost = Number(inputElement.value);//when change de variable, shift "const" to "let"
+
+  if (cost < 40) {
+    cost = cost + 10;
+  }
+
+  document.querySelector('.js-total-cost')
+    .innerHTML = ` $${cost}`;
+
+}
+
+function typing(event) {//to put a value in to a function we can use a parameter"event"
+  if (event.key === 'Enter') {
+    calculateTotal();
+  }
+
+}

@@ -9,10 +9,11 @@
 </head>
 
 <body>
-    <h2>YouTube Subscribe Button</h2>
-    <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
-    <button class="js-button">Second button</button>
-
+    <div>
+        <h2>YouTube Subscribe Button</h2>
+        <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
+        <button class="js-button">Second button</button>
+    </div>
 
     <div>
         <h2>Rock Paper Scissor</h2>
@@ -29,6 +30,15 @@
         </div>
 
         <button onclick="resetScore()">Reset Score</button>
+    </div>
+
+    <div>
+        <p>Amazon Shiping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input class="js-cost-input" onkeydown="typing(event)" placeholder="Cost of order">
+        <button onclick="calculateTotal()">Calculate</button>
+        <p class="js-total-cost"></p>
     </div>
 
 
