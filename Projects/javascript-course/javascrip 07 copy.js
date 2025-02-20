@@ -301,5 +301,54 @@ console.log('Hello'.toLowerCase());
 //8g
 console.log('Hello'.repeat(5));
 
-//8h
+//8i, j and k Update Coin-flip game
+function resetScoreCoin() {
+  scoreCoin.win = 0;
+  scoreCoin.loss = 0;
+  console.log(`Wins: ${scoreCoin.win} Loss: ${scoreCoin.loss}`);
+  localStorage.removeItem('scoreCoin');
+}
+
+let scoreCoin = JSON.parse(localStorage.getItem('scoreCoin')) || {
+  win: 0,
+  loss: 0
+};
+
+console.log(`Wins: ${scoreCoin.win} Loss: ${scoreCoin.loss}`);
+
+
+function playGame(guess) {
+  // Generate a random number
+  const randomNumber = Math.random();
+  let fliped = "";
+  let resultCoin = "";
+  //Define what choice the computer makes
+
+  if (randomNumber < 0.5) {
+    fliped = 'Heads';
+  } else {
+    fliped = 'Tails';
+  }
+
+  //Algorithm to define the results
+  if (guess === fliped) {
+    resultCoin = 'Win';
+  } else {
+    resultCoin = 'Loss';
+  }
+
+  //Add points in the score
+  if (resultCoin === 'Win') {
+    scoreCoin.win += 1;
+
+  } else if (resultCoin === 'Loss') {
+    scoreCoin.loss += 1;
+  }
+  console.log(`Wins: ${scoreCoin.win} Loss: ${scoreCoin.loss}`);
+
+  localStorage.setItem('scoreCoin', JSON.stringify(scoreCoin));
+  // console.log(JSON.stringify(scoreCoin));
+
+  document.getElementById('coinFlip').innerHTML = `You ${resultCoin}. The coin ${fliped}`;
+}
 

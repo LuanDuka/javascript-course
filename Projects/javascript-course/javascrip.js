@@ -401,10 +401,12 @@ if (!isHoliday && (discountAge <= 6 || discountAge >= 65)) {
 
 
 
-function guess(playerChoice) {
+function playGame(guess) {
+  // Generate a random number
   const randomNumber = Math.random();
   let fliped = "";
   let resultCoin = "";
+  //Define what choice the computer makes
 
   if (randomNumber < 0.5) {
     fliped = 'Heads';
@@ -412,7 +414,8 @@ function guess(playerChoice) {
     fliped = 'Tails';
   }
 
-  if (playerChoice === fliped) {
+  //Algorithm to define the results
+  if (guess === fliped) {
     resultCoin = 'Win';
   } else {
     resultCoin = 'Loss';
