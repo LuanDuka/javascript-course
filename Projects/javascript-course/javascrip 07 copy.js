@@ -1,12 +1,18 @@
-let calculation = JSON.parse(localStorage.getItem('calculation'));
-
-
+let calculation = localStorage.getItem('calculation') || '';
 
 function updateCalculation(value) {
   if (value === '=') {
-    eval(calculation);
-    calculation = eval(calculation);
-    console.log(calculation);
+    // eval(calculation);
+    // calculation = eval(calculation);
+    // console.log(calculation);
+    try {
+      // Usando Function para evitar o uso de eval
+      calculation = new Function('return ' + calculation)();
+      console.log(calculation);
+    } catch (error) {
+      console.error('Erro ao calcular:', error);
+      calculation = ''; // Limpa a calculadora em caso de erro
+    }
 
   } else if (value === 'clean') {
     calculation = '';
@@ -18,7 +24,7 @@ function updateCalculation(value) {
 
   }
 
-  localStorage.setItem('calculation', JSON.stringify(calculation));
+  localStorage.setItem('calculation', (calculation));
   // console.log(JSON.stringify(calculation));
 }
 
@@ -289,7 +295,7 @@ const product2c = {
 console.log(isSameProduct(product2a, product2b));
 console.log(isSameProduct(product2a, product2c));
 
-//8f
+//8f lowercase
 console.log('Hello'.toLowerCase());
 
 //8g
