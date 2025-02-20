@@ -48,12 +48,19 @@ delete product.newProperty;
 console.log(product);
 
 //Update Rock Paper Scissor
+// let result = '';
 
 function resetScore() {
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
   localStorage.removeItem('score');
+
+  //Lesson 09 - Update Rock Paper Scissor
+  updateScoreElement();
+  resultElement('');
+  movesElement('', '');
+
 }
 //Get the value out and input default value after ||
 let score = JSON.parse(localStorage.getItem('score')) || {
@@ -61,6 +68,10 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   losses: 0,
   ties: 0
 };
+
+//Lesson 09 - Update Rock Paper Scissor
+// let playerMove = '';
+
 
 //quando atualiza a página após resestar, score é igual a null
 //ou usar (!score) é igual a (score === null)
@@ -113,8 +124,37 @@ function choice(playerMove) {
   console.log(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins:${score.wins}. Losses ${score.losses}. Ties ${score.ties}!`)
 
+  //Lesson 09 - Update Rock Paper Scissor
+  updateScoreElement();
+  resultElement(result);
+  movesElement(playerMove, computerMove);
+
+}
+//Lesson 09 - Update Rock Paper Scissor
+function updateScoreElement() {
+  document.querySelector('.js-score')
+    .innerHTML = `Wins:${score.wins}. Losses ${score.losses}. Ties ${score.ties}!`;
 }
 
+function resultElement(result) {//result como argumento DEEPSEEK
+  if (!result) {
+    document.querySelector('.js-result')
+      .innerHTML = `Choose a move!`;
+  } else {
+    document.querySelector('.js-result')
+      .innerHTML = result;
+  }
+}
+
+function movesElement(playerMove, computerMove) {//playerMove, computerMove como argumento DEEPSEEK
+  document.querySelector('.js-moves')
+    .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+}
+
+// Inicialização
+updateScoreElement();
+resultElement('');
+movesElement('', '');
 
 
 const product2 = {
@@ -350,5 +390,48 @@ function playGame(guess) {
   // console.log(JSON.stringify(scoreCoin));
 
   document.getElementById('coinFlip').innerHTML = `You ${resultCoin}. The coin ${fliped}`;
+}
+
+//Lesson 09 - Document Object Model (DOM: another biult-in object > document object)
+//The document object represents/models the webpage
+/*document.body.innerHTML = 'hello';//remove everything on the page and replaces with 'hello'
+document.title = 'Good job!';
+*/
+//We can have HTML elements inside JavaScrip
+//The HTML element is converted into a JavaScrip object
+/*
+document.title = 'Changed!'
+console.log(document.title);
+
+console.log(document.body);
+console.log(typeof document.body);
+
+console.log(document.body.innerHTML);
+document.body.innerHTML = '<button>Good Job!</button>';
+*/
+
+//method = function saved inside an object
+
+//lets us get any element from the page
+//and put it inside JavaScrip
+/*
+console.log(document.querySelector('button').innerHTML);
+document.querySelector('button')
+  .innerHTML = 'Changed';
+
+//DOM combines JS and HTML together
+const buttonElement = document.querySelector('.js-button')//class selector
+  .innerHTML = 'Changed';
+*/
+
+//innerText get the text without the spaces
+function subscribe() {
+  const buttonElement = document.querySelector('.js-subscribe-button');
+
+  if (buttonElement.innerText === 'Subscribe') {
+    buttonElement.innerText = 'Subscribed';
+  } else {
+    buttonElement.innerText = 'Subscribe';
+  }
 }
 
