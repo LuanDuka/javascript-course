@@ -437,15 +437,15 @@ function subscribe() {
 
 function calculateTotal() {
   const inputElement = document.querySelector('.js-cost-input');
-  let cost = Number(inputElement.value);//when change de variable, shift "const" to "let"
+  let cost = Number(inputElement.value) * 100;//when change de variable, shift "const" to "let"
 
-  if (cost < 40) {
-    cost = cost + 10;
+  if (cost < 4000) {
+    cost = cost + 1000;
   }
 
   document.querySelector('.js-total-cost')
-    .innerHTML = ` $${cost}`;
-
+    .innerHTML = ` $${cost / 100}`;
+  console.log(typeof ` $${cost}`);
 }
 
 function typing(event) {//to put a value in to a function we can use a parameter"event"
@@ -454,3 +454,32 @@ function typing(event) {//to put a value in to a function we can use a parameter
   }
 
 }
+
+window.document//represents the browser
+window.console.log('window');
+window.alert
+//9a
+console.log(document.querySelector('.button-9a'));
+//9b
+document.querySelector('.button-9b')
+  .innerHTML = '9b done!';
+//9c
+function yourChoice(myChoice) {
+  document.querySelector('.your-choice')
+    .innerHTML = `You Chose: ${myChoice}`;
+}
+//9d
+function submitName() {
+  const inputElement = document.querySelector('.js-submit');
+  let yourName = inputElement.value;
+
+  document.querySelector('.your-name-submit')
+    .innerHTML = `Your name is: ${yourName}`;
+}
+
+function named(event) {
+  if (event.key === 'Enter') {
+    submitName();
+  }
+}
+
