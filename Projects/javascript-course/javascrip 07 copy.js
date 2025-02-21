@@ -1,5 +1,13 @@
 let calculation = localStorage.getItem('calculation') || '';
 
+if (!calculation) {
+  document.querySelector('.numbers')
+    .innerHTML = `${0}`;
+} else {
+  document.querySelector('.numbers')
+    .innerHTML = `${calculation}`;
+}
+
 function updateCalculation(value) {
   if (value === '=') {
     // eval(calculation);
@@ -9,18 +17,26 @@ function updateCalculation(value) {
       // Usando Function para evitar o uso de eval
       calculation = new Function('return ' + calculation)();
       console.log(calculation);
+      document.querySelector('.numbers')
+        .innerHTML = `${calculation}`;
     } catch (error) {
       console.error('Erro ao calcular:', error);
+      document.querySelector('.numbers')
+        .innerHTML = `Erro ao calcular`;
       calculation = ''; // Limpa a calculadora em caso de erro
     }
 
   } else if (value === 'clean') {
     calculation = '';
     console.log(calculation);
+    document.querySelector('.numbers')
+      .innerHTML = `${0}`;
 
   }
   else if (calculation += value) {
     console.log(calculation);
+    document.querySelector('.numbers')
+      .innerHTML = `${calculation}`;
 
   }
 
