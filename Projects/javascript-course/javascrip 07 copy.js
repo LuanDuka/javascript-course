@@ -483,3 +483,10 @@ function named(event) {
   }
 }
 
+//9h
+function updateText() {
+  const inputElement = document.querySelector('.js-input-copy');
+  document.querySelector('.js-text-copy')
+    .innerHTML = inputElement.value;
+}
+

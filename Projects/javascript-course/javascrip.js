@@ -463,20 +463,24 @@ function guess(myGuess) {
  */
 
 //Challenge Exercise 6k
+//Update Lesson 09
 let cartItemQuantity = 0;
+document.querySelector('.displayQuantity')
+  .innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 
 function showItemQuantity() {
-  console.log(`Cart Quantity: ${cartItemQuantity}`);
-  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+  // console.log(`Cart Quantity: ${cartItemQuantity}`);
+  document.querySelector('.displayQuantity')
+    .innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 
 };
 function addItemToCart(itemAdd) {
-  if (cartItemQuantity + itemAdd > 10) {
-    alert('The cart is full');
+  const operationCart = cartItemQuantity + itemAdd;
+  if (operationCart > 10) {
+    alert(`The cart is full. You can add just ${operationCart - itemAdd}`);
   } else {
     cartItemQuantity += itemAdd;
   }
-
   /*
   else if (itemAdd === 1) {
     cartItemQuantity++;
@@ -496,7 +500,7 @@ function addItemToCart(itemAdd) {
   }
     */
   console.log(`Cart Quantity: ${cartItemQuantity}`);
-  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+  document.querySelector('.displayQuantity').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 }
 
 //function to remove itens from the cart'
@@ -508,13 +512,13 @@ function removeItemFromCart(itemRemove) {
     cartItemQuantity -= itemRemove;
   }
   console.log(`Cart Quantity: ${cartItemQuantity}`);
-  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+  document.querySelector('.displayQuantity').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 }
 
 function resetCartButton() {
   cartItemQuantity = 0;
   console.log(`Cart Quantity: ${cartItemQuantity}`);
-  document.getElementById('littleCart').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
+  document.querySelector('.displayQuantity').innerHTML = `Cart Quantity: ${cartItemQuantity}`;
 }
 
 //Lesson 07 - Parameter
