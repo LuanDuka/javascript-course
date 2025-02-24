@@ -144,7 +144,8 @@ body {
     cursor: pointer;
 }
 
-Lesson 10 exercise .add-amazon-button {
+/* Lesson 10 exercise */
+.add-amazon-button {
     border: none;
     background-color: rgb(255, 216, 20);
     padding: 5px 40px;
