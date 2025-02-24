@@ -100,15 +100,26 @@ body {
     cursor: pointer;
 }
 
-.rock-paper-scissor {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    height: 250px;
+/* Rock Paper Scissor */
+.div-rock-paper-scissor {
+    display: grid;
+    place-items: center;
+    height: 500px;
     background-color: rgb(25, 25, 25);
     color: white;
+
+}
+
+.css-result {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.b-rock-paper-scissor {
     font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .move-icon {

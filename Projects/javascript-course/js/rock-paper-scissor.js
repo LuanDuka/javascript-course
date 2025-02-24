@@ -96,8 +96,26 @@ function resultElement(result) {
 
 // Função para exibir os movimentos na tela
 function movesElement(playerMove, computerMove) {
+    let iconPlayerMove = '';
+    let iconComputerMove = '';
+
+    if (computerMove === 'Rock') { // Corrigido: use { em vez de ´
+        iconComputerMove = `<img class="move-icon move-button" src="img/rock.png">`;
+    } else if (computerMove === 'Paper') {
+        iconComputerMove = `<img class="move-icon move-button" src="img/paper.png">`;
+    } else if (computerMove === 'Scissor') {
+        iconComputerMove = `<img class="move-icon move-button" src="img/scissor.png">`;
+    }
+
+    if (playerMove === 'Rock') { // Corrigido: use { em vez de ´
+        iconPlayerMove = `<img class="move-icon move-button" src="img/rock.png">`;
+    } else if (playerMove === 'Paper') {
+        iconPlayerMove = `<img class="move-icon move-button" src="img/paper.png">`;
+    } else if (playerMove === 'Scissor') {
+        iconPlayerMove = `<img class="move-icon move-button" src="img/scissor.png">`;
+    }
     document.querySelector('.js-moves')
-        .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+        .innerHTML = `You ${iconPlayerMove} - ${iconComputerMove} Computer`;
 }
 
 // Inicializa os elementos na tela ao carregar a página
