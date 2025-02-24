@@ -5,21 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <p>Rock Paper Scissors</p>
+    <div class="rock-paper-scissor">
+        <p>Rock Paper Scissor</p>
+        <div>
+            <button class="move-button" onclick="choice('Rock')"><img class="move-icon" src="img/OIP.png"></button>
+            <button class="move-button" onclick="choice('Paper')"><img class="move-icon" src="img/OIP-_2.png"></button>
+            <button class="move-button" onclick="choice('Scissor')"><img class="move-icon"
+                    src="img/OIP-_1.png"></button>
+        </div>
 
-    <button onclick="choice('Rock')">Rock</button>
-    <button onclick="choice('Paper')">Paper</button>
-    <button onclick="choice('Scissor')">Scissor</button>
+        <div>
+            <p class="js-result"></p>
+            <p class="js-moves"></p>
+            <p class="js-score"></p>
+        </div>
+        <div>
+            <p>
+                <button onclick="resetScore()">Reset Score</button>
+            </p>
+        </div>
+    </div>
 
-    <p id="result"></p>
-    <p id="scorePoints"></p>
-    <button class="reset-button" onclick="resetScore()">Reset Score</button>
-
-    <script src="javascrip 07 copy.js"></script>
+    <script src="js/rock-paper-scissor.js"></script>
 </body>
 
 </html>
