@@ -104,3 +104,5 @@ function movesElement(playerMove, computerMove) {
 updateScoreElement();
 resultElement('');
 movesElement('', '');
+
+
