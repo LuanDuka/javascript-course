@@ -64,7 +64,22 @@ delete product.newProperty;
 console.log(product);
 
 //Update Rock Paper Scissor
-// let result = '';
+//Get the value out and input default value after ||
+
+
+let score = JSON.parse(localStorage.getItem('score')) || {
+  wins: 0,
+  losses: 0,
+  ties: 0
+};
+
+if (!score || typeof score !== 'object') {
+  score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+  };
+}
 
 function resetScore() {
   score.wins = 0;
@@ -78,12 +93,7 @@ function resetScore() {
   movesElement('', '');
 
 }
-//Get the value out and input default value after ||
-let score = JSON.parse(localStorage.getItem('score')) || {
-  wins: 0,
-  losses: 0,
-  ties: 0
-};
+
 
 //Lesson 09 - Update Rock Paper Scissor
 // let playerMove = '';
@@ -115,6 +125,7 @@ function choice(playerMove) {
   }
 
   //Algorithm to define the results
+  let result = '';
   if (playerMove === computerMove) {
     result = 'Tie.';
   } else if (
@@ -446,8 +457,11 @@ function subscribe() {
 
   if (buttonElement.innerText === 'Subscribe') {
     buttonElement.innerText = 'Subscribed';
+    buttonElement.classList.add('is-subscribed');
   } else {
     buttonElement.innerText = 'Subscribe';
+    buttonElement.classList.remove('is-subscribed');
+
   }
 }
 

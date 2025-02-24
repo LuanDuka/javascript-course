@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .addToCart-button {
     background-color: yellow;
     color: black;
@@ -61,4 +65,43 @@
     align-items: stretch;
 }
 
-/* Lesson 09 */
+/* Lesson 10 */
+.css-subscribe-button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 105px;
+    margin-bottom: 30px;
+}
+
+.is-subscribed {
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+.css-cost-input {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.calculate-button {
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+.rock-paper-scissor {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
