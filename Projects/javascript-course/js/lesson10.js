@@ -75,10 +75,10 @@ function calculateTotal() {
 
 
 }
-
 function typing(event) {//to put a value in to a function we can use a parameter"event"
     if (event.key === 'Enter') {
         calculateTotal();
     }
 
 }
+
