@@ -53,3 +53,32 @@ function toggledOnOff(selector) {
         }
     }
 }
+//10h
+function calculateTotal() {
+    const inputElement = document.querySelector('.js-cost-input');
+    const totalCost = document.querySelector('.js-total-cost');
+
+    let cost = Number(inputElement.value) * 100;//when change de variable, shift "const" to "let"
+
+    if (cost >= 0 && cost < 4000) {
+        cost = cost + 1000;
+        totalCost.classList.remove('redText');
+
+        document.querySelector('.js-total-cost')
+            .innerHTML = ` $${cost / 100}`;
+        console.log(` $${cost}`);
+    } else if (cost < 0) {
+        totalCost.classList.add('redText');
+        document.querySelector('.js-total-cost')
+            .innerHTML = ` Error: cost cannot be less than $0`;
+    }
+
+
+}
+
+function typing(event) {//to put a value in to a function we can use a parameter"event"
+    if (event.key === 'Enter') {
+        calculateTotal();
+    }
+
+}

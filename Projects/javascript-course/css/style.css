@@ -186,3 +186,7 @@ body {
     background-color: black;
     color: white;
 }
+
+.redText {
+    color: red;
+}
