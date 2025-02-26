@@ -209,6 +209,21 @@ function addOne(array) {
 }
 console.log(addOne([1, 2, 3]));
 console.log(addOne([-2, -1, 0, 99]));
+//11i
+function addNum(array, num) {
+    const addedNum = [];
+
+    for (let i = 0; array.length; i++) {
+        const adding = array[i];
+        addedNum.push(adding + num);
+
+    }
+    return addedNum
+}
+console.log(addNum([1, 2, 3], 2));
+console.log(addNum([1, 2, 3], 3));
+console.log(addNum([-2, -1, 0, 99]));
+
 //11l
 function minMax(nums) {
     let min = null;// Set the starting to null
