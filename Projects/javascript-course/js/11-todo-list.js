@@ -213,7 +213,7 @@ console.log(addOne([-2, -1, 0, 99]));
 function addNum(array, num) {
     const addedNum = [];
 
-    for (let i = 0; array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         const adding = array[i];
         addedNum.push(adding + num);
 
@@ -222,9 +222,38 @@ function addNum(array, num) {
 }
 console.log(addNum([1, 2, 3], 2));
 console.log(addNum([1, 2, 3], 3));
-console.log(addNum([-2, -1, 0, 99]));
+console.log(addNum([-2, -1, 0, 99], 2));
+//11j
+function addArrays(array1, array2) {
+    const addEach = [];
 
-//11l
+    for (let i = 0; i < array1.length && i < array2.length; i++) {
+        const arrayOne = array1[i];
+        const arrayTwo = array2[i];
+
+        addEach.push(arrayOne + arrayTwo);
+
+    }
+    return addEach//the function returns the final result after processing all pairs of elements
+
+}
+console.log(addArrays([1, 1, 2], [1, 1, 3]));
+console.log(addArrays([1, 2, 3], [4, 5, 6]));
+//11k
+function countPositive(nums) {
+    let greater = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        if (num > 0) {
+            greater++;
+        }
+    }
+    return greater
+}
+console.log(countPositive([1, -3, 5]));
+console.log(countPositive([-2, 3, -5, 7, 10]));
+//11l-m
 function minMax(nums) {
     let min = null;// Set the starting to null
     let max = null;
@@ -249,14 +278,13 @@ console.log(minMax([-2, 3, -5, 7, - 10]));
 console.log(minMax([]));
 console.log(minMax([3]));
 //11n
+
 function countWords(words) {
     let property = '';
 
     for (let i = 0; i < words.length; i++) {
         const word = words[i];
-        property = object[word];
-        console.log(property);
+
     }
-    return word
 }
 console.log(countWords(['apple', 'grape', 'apple', 'apple']));
