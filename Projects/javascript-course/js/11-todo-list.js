@@ -105,7 +105,14 @@ console.log(numsDoubled);
 //1.Loop through the array
 //2.Create some HTML code for each todo
 //3.Put the HTML on web page
-const todoList = ['make dinner', 'wash dishes'];
+const todoList = [{
+    name: 'make dinner',
+    dueDate: '2022-12-22'
+}, {
+    name: 'wash dishes',
+    dueDate: '2022-12-22'
+}
+];
 
 renderTodoList();//display the todo list on the page
 
@@ -117,12 +124,24 @@ function renderTodoList() {//render=to display something on the page
     let todoListHTML = '';//variable to store the result > `<p>${todo}</p>`
 
     for (let i = 0; i < todoList.length; i++) {
-        const todo = todoList[i];
-        const html = `<p>${todo}</p>`;//Generating the HTIM: for each 'todo', we create each 'html'
+        const todoObject = todoList[i];
+        //const name = todoObject.name; > SHORTCUTED
+        //const dueDate = todoObject.dueDate; > SHORTCUTED
+        const { name, dueDate } = todoObject;
+        const html = `
+        
+            <div>${name}</div>
+            <div>${dueDate}</div>
+            <div>
+                <button class="delete-todo-button" onclick="
+                todoList.splice(${i},1);
+                renderTodoList();
+                ">Delete</button>
+            </div>
+            `;//Generating the HTIM: for each 'todo', we create each 'html'
         //combine all 'html' and put in the HTML web page: Accumulator Pattern
         todoListHTML += html;
     }
-    console.log(todoListHTML);
 
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
@@ -132,9 +151,17 @@ function addTodo() {
     const inputElement = document.querySelector('.js-name-input');
     const name = inputElement.value;
 
+    const dateInputElement = document.querySelector('.js-due-date-input');
+    const dueDate = dateInputElement.value;
+
     todoList
-        .push(name);
-    console.log(todoList);
+        .push({
+            //name: name,if the property and variable name are the same
+            //dueDate: dueDate,
+            name,//shorhand property sintax
+            dueDate
+        }
+        );
 
     inputElement.value = '';
 
@@ -280,11 +307,37 @@ console.log(minMax([3]));
 //11n
 
 function countWords(words) {
-    let property = '';
+    /*my resolution
+    const wordsCount = {
+        apple: 0,
+        grape: 0
+    }
 
     for (let i = 0; i < words.length; i++) {
         const word = words[i];
 
+        if (word === 'apple') {
+            wordsCount.apple++;
+        } else if (word === 'grape') {
+            wordsCount.grape++;
+        }
     }
+    return wordsCount
+    */
+    const result = {};//creating an empty object, to store key-value pairs
+
+    for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        // result[word] adds/accesses a property using whatever is
+        // saved inside the 'word' variable.
+        // If word = 'apple', result[word] will do result['apple']
+        // If word = 'grape', result[word] will do result['grape']
+        if (!result[word]) {//used to initialize a count for a word the first time
+            result[word] = 1;
+        } else {
+            result[word]++;//sum value into the word
+        }
+    }
+    return result;
 }
 console.log(countWords(['apple', 'grape', 'apple', 'apple']));
