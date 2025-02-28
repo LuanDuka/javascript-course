@@ -20,13 +20,15 @@ myArray.splice(0, 1);//position and quantity to remove
 console.log(myArray);
 
 //Lesson 11 - Loops
-let i = 1;//loop variable
+//let i = 1;loop variable
 //Use when need a Non-standard loop
+/*
 while (i <= 3) {//loop condition
 
     console.log(i);//loop body 
     i++;//increment step
 }
+    */
 //Non-standard loop
 let randomNumber = 0;
 
@@ -91,7 +93,7 @@ for (let i = 0; i < nums.length; i++) {
     total += num;
 }
 console.log(total);
-
+/*
 const numsDoubled = [];
 
 for (let i = 0; i < nums.length; i++) {
@@ -99,7 +101,7 @@ for (let i = 0; i < nums.length; i++) {
     numsDoubled.push(num * 2);
 }
 console.log(numsDoubled);
-
+*/
 //Todo List Practice 2
 //Steps (Algorithm)
 //1.Loop through the array
@@ -138,7 +140,8 @@ function renderTodoList() {//render=to display something on the page
                 renderTodoList();
                 ">Delete</button>
             </div>
-            `;//Generating the HTIM: for each 'todo', we create each 'html'
+            `;
+        //Generating the HTML: for each 'todo', we create each 'html'
         //combine all 'html' and put in the HTML web page: Accumulator Pattern
         todoListHTML += html;
     }
@@ -204,23 +207,23 @@ function arraySwap(array) {
 console.log(arraySwap([1, 20, 22, 24, 5]));
 console.log(arraySwap(['hi', 'hello', 'hey']));
 //11d
-for (i = 0; i <= 10; i += 2) {
+for (i = 0; i <= 10; i += 2) {//count by twos until 10
     console.log(i);
 }
 //11e
-for (i = 5; i >= 0; i--) {
+for (i = 5; i >= 0; i--) {//count to 5 until 0
     console.log(i);
 
 }
 //11f
 let id11 = 0;
-while (id11 <= 10) {
+while (id11 <= 10) {//count by twos until 10
     console.log(id11);
     id11 += 2;
 }
 let ie11 = 5;
 
-while (ie11 > 0) {
+while (ie11 > 0) {//count to 5 until 0
     console.log(ie11);
     ie11--;
 }
@@ -255,14 +258,10 @@ function addArrays(array1, array2) {
     const addEach = [];
 
     for (let i = 0; i < array1.length && i < array2.length; i++) {
-        const arrayOne = array1[i];
-        const arrayTwo = array2[i];
-
-        addEach.push(arrayOne + arrayTwo);
+        addEach.push(array1[i] + array2[i]);
 
     }
     return addEach//the function returns the final result after processing all pairs of elements
-
 }
 console.log(addArrays([1, 1, 2], [1, 1, 3]));
 console.log(addArrays([1, 2, 3], [4, 5, 6]));
@@ -271,8 +270,7 @@ function countPositive(nums) {
     let greater = 0;
 
     for (let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        if (num > 0) {
+        if (nums[i] > 0) {
             greater++;
         }
     }
@@ -341,3 +339,119 @@ function countWords(words) {
     return result;
 }
 console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+//Arrays are references
+const arrayA = [1, 2, 3];
+const arrayB = arrayA.slice();//make it point to a different array
+arrayB.push(4);
+console.log(arrayA);
+console.log(arrayB);
+//Shortcut Destructuring
+//const arrayC = [1, 2, 3];
+const [firstValue, secondValue] = [1, 2, 3];
+console.log(secondValue);
+//More detais about loops
+//1.break = exit a loop early
+//2.contiue = skip 1 iteration
+//remainder 7 % 3 => 1 | 6 % 3 => 0 (skip if divided by 3)
+for (let i = 1; i <= 10; i++) {
+    if (i % 3 === 0) {
+        continue;
+    }
+    console.log(i);
+    if (i === 8) {
+        break;
+    }
+}
+
+let jay = 1;
+while (jay <= 10) {
+    if (jay % 3 === 0) {
+        jay++;
+        continue;
+    }
+    console.log(jay);
+    jay++;
+}
+//Loops inside a function
+function doubleArray(numms) {
+    const numsDoubled = [];
+
+    for (let i = 0; i < numms.length; i++) {
+        const num = numms[i];//Accumulator Variable > result is an array
+        if (num === 0) {
+            //break;
+            return numsDoubled;//another way to break
+        }
+        numsDoubled.push(num * 2);
+    }
+    return numsDoubled;
+}
+console.log(doubleArray([1, 1, 3]));
+console.log(doubleArray([2, 2, 5, 0, 5]));
+//11o-p
+function findSeach() {
+    let words = ['hello', 'world', 'search', 'good', 'search'];
+    let index = -1;
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === 'search') {
+            index = i;
+            break;
+        }
+    }
+    return index
+}
+console.log(findSeach());
+
+function findSeachs() {
+    words = ['not', 'found'];
+    index = -1;
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === 'search') {
+            index = i;
+        }
+    }
+
+    return index
+}
+console.log(findSeachs());
+//11q
+function findIndex(array, word) {
+    let index = -1;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+            index = i;
+            break;
+        }
+    }
+    return index
+}
+console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
+//11r
+function removeEgg(foods) {
+    const result = [];
+
+    for (let i = 0; i < foods.length; i++) {
+        const food = foods[i];
+        let countEgg = 0;
+
+        if (countEgg < 2) {
+            // If the string is 'egg', use continue to skip it.
+            if (food === 'egg') {
+                countEgg++;
+                continue;
+            }
+            // We don't need to have an else here because
+            // the only way to reach this code is if the 
+            // if-statement above is false.
+            result.push(foods[i]);
+        }
+    }
+    return result;
+}
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+//11s
