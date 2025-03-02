@@ -418,7 +418,7 @@ function findSeachs() {
 }
 console.log(findSeachs());
 //11q
-function findIndex(array, word) {
+function findIndexx(array, word) {
     let index = -1;
 
     for (let i = 0; i < array.length; i++) {
@@ -429,29 +429,170 @@ function findIndex(array, word) {
     }
     return index
 }
-console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
-console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
-//11r
-function removeEgg(foods) {
+console.log(findIndexx(['green', 'red', 'blue', 'red'], 'red'));
+console.log(findIndexx(['green', 'red', 'blue', 'red'], 'yellow'));
+//11r-s update by myself
+function removeEggs(foods) {
     const result = [];
+    let countEgg = {};//empty object
+
 
     for (let i = 0; i < foods.length; i++) {
         const food = foods[i];
-        let countEgg = 0;
 
-        if (countEgg < 2) {
-            // If the string is 'egg', use continue to skip it.
-            if (food === 'egg') {
-                countEgg++;
-                continue;
-            }
-            // We don't need to have an else here because
-            // the only way to reach this code is if the 
-            // if-statement above is false.
-            result.push(foods[i]);
+        if (!countEgg[food]) {//initialize a count for a word the first time
+            countEgg[food] = 1;
+        } else {
+            countEgg[food]++;//sum value into the word
+        }
+        // If the string is 'egg', use continue to skip it.
+        if (countEgg.egg < 3 && food === 'egg') {
+            continue;
+        }
+        // We don't need to have an else here because
+        // the only way to reach this code is if the 
+        // if-statement above is false.
+        result.push(foods[i]);
+    }
+    console.log(countEgg);
+    console.log(countEgg.egg);
+
+    return result;
+}
+console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
+//11s update lesson
+/*
+function removeEgg(foods) {
+    const result = [];
+    let eggsRemoved = 0;
+
+    for (let i = 0; i < foods.length; i++) {
+      // Only skip 'egg' if we removed less than 2
+      // of them so far.
+      if (foods[i] === 'egg' && eggsRemoved < 2) {
+        // Update the number of 'egg' we have removed.
+        // This must be done before continue, otherwise,
+        // doing continue first will just skip this code.
+        eggsRemoved++;
+        continue;
+      }
+
+      result.push(foods[i]);
+    }
+
+    return result;
+  }
+
+  console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+  */
+//11t
+function removeEggz(foods) {
+    const reversedFoods = foods.slice().reverse();// To remove the last 2 'egg', reverse the array first.
+    const result = [];
+    let eggsRemoved = 0;
+
+    for (let i = 0; i < reversedFoods.length; i++) {
+        // Only skip 'egg' if we removed less than 2
+        // of them so far.
+        if (reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            // Update the number of 'egg' we have removed.
+            // This must be done before continue, otherwise,
+            // doing continue first will just skip this code.
+            eggsRemoved++;
+            continue;
+        }
+        result.push(reversedFoods[i]);
+    }
+    return result.reverse()
+}
+console.log(removeEggz(['egg', 'apple', 'egg', 'egg', 'ham']));
+//11u apllying slice()
+const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+function removeEgg() {
+    const reversedFoods = foods.slice().reverse();// To remove the last 2 'egg', reverse the array first.
+    // This technique is called "method chaining", because we use one method after another
+    const result = [];
+    let eggsRemoved = 0;
+
+    for (let i = 0; i < reversedFoods.length; i++) {
+        // Only skip 'egg' if we removed less than 2
+        // of them so far.
+        if (reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            // Update the number of 'egg' we have removed.
+            // This must be done before continue, otherwise,
+            // doing continue first will just skip this code.
+            eggsRemoved++;
+            continue;
+        }
+        result.push(reversedFoods[i]);
+    }
+    return result.reverse()
+}
+console.log(removeEgg((foods)['egg', 'apple', 'egg', 'egg', 'ham']));
+console.log(foods);
+//11v
+for (let i = 1; i <= 20; i++) {
+
+
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log('FizzBuzz');
+        continue;
+    } else if (i % 3 === 0) {
+        console.log('Fizz');
+        continue;
+    } else if (i % 5 === 0) {
+        console.log('Buzz');
+        continue;
+    } else {
+        console.log(i);
+    }
+}
+//11w
+//My solution > I can't use the previous exercise
+function unique(array) {
+    const result = [];
+    let current = {};
+
+    for (let i = 0; i < array.length; i++) {
+        const word = array[i];
+
+        if (!current[word]) {
+            current[word] = 1;
+            result.push(array[i]);
+        } else {
+            continue;
+        }
+        console.log(current);
+    }
+    return result;
+}
+console.log(unique((['green', 'red', 'blue', 'red'])));
+console.log(unique((['red', 'green', 'green', 'red'])));
+//previous exercise
+function findIndex(array, word) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+            return i;
+        }
+    }
+    return -1;
+}
+function uniques(array) {
+    const result = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const word = array[i];
+
+        // Using the findIndex() function from above, we
+        // can check if the string is already in the
+        // result array. If it's not in the result array
+        // (index is -1), then add it to the result array.
+        if (findIndex(result, word) === -1) {
+            result.push(word);
         }
     }
     return result;
 }
-console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
-//11s
+console.log(uniques(['green', 'red', 'blue', 'red']));
+console.log(uniques(['red', 'green', 'green', 'red']));
