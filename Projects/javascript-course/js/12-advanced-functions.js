@@ -48,6 +48,7 @@ setInterval(function () {
 
 console.log('next line 2');
 //.forEach() is the preferred way to loop through an array
+//
 [
     'make dinner',
     'wash dishes',
@@ -212,3 +213,31 @@ buttonElement.addEventListener('click', () => {//arrow function
 //Can remove an event listener . removeEventListener()
 buttonElement.removeEventListener('click', eventListener);
 //Best practice: use addEventListener() instead of onclick=""
+
+//2 more array methods: 
+// .filter() 
+// 1. Creates a new array[]
+// 2. return true, => put value in array
+// 3. return false, => not put value in array
+console.log([1, -3, 5].filter((value, index) => {
+    /* if (value >= 0) {
+         return true;
+     } else {
+         return false;
+     }*/
+    return value >= 0;//does the same thing that lines above
+}));
+//and .map() : transform an array into another array
+// 1. Creates a new array[]
+// 2. Whatever we return => added to new array
+console.log([1, 1, 3].map((value, index) => {
+    return value * 2;
+}));
+//Shortcuts of arrow functions
+//remove () because just 1 parameter
+//remove {} and return, because have only one line of code
+console.log([1, 1, 3].map(value => value * 2));
+//Closure
+//If a function has access to a value
+//It will always have access to that value
+//value gets packaged together (enclosed) with the function
