@@ -107,13 +107,7 @@ console.log(numsDoubled);
 //1.Loop through the array
 //2.Create some HTML code for each todo
 //3.Put the HTML on web page
-const todoList = [{
-    name: 'make dinner',
-    dueDate: '2022-12-22'
-}, {
-    name: 'wash dishes',
-    dueDate: '2022-12-22'
-}
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [
 ];
 
 renderTodoList();//display the todo list on the page
@@ -148,6 +142,8 @@ function renderTodoList() {//render=to display something on the page
 
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+
 }
 
 function addTodo() {
@@ -167,8 +163,10 @@ function addTodo() {
         );
 
     inputElement.value = '';
+    dateInputElement.value = '';
 
     renderTodoList();//everytime we add an item, we display the todo list again
+    localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 
 //Main Idea of JavaScript

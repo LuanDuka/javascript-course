@@ -93,11 +93,8 @@ function resetScore() {
   movesElement('', '');
 
 }
-
-
 //Lesson 09 - Update Rock Paper Scissor
 // let playerMove = '';
-
 
 //quando atualiza a página após resestar, score é igual a null
 //ou usar (!score) é igual a (score === null)
@@ -110,7 +107,6 @@ if (score === null) {
   }
 }
 */
-
 function choice(playerMove) {
   // Generate a random number
   const randomNumber = Math.random();
@@ -123,7 +119,6 @@ function choice(playerMove) {
   } else {
     computerMove = 'Paper';
   }
-
   //Algorithm to define the results
   let result = '';
   if (playerMove === computerMove) {
