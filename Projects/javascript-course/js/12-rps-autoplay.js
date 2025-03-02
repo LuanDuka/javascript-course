@@ -31,9 +31,12 @@ function resetScore() {
 let isAutoPlaying = false;
 let intervalId;//save the ID
 
+// const autoPlay = () => {
+
+// };
 function autoPlay() {
     if (!isAutoPlaying) {
-        intervalId = setInterval(function () {
+        intervalId = setInterval(() => {//add arrow function
             const playerMove = pickComputerMove();
             choice(playerMove);
         }, 1000);

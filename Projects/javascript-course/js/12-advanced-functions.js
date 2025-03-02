@@ -52,7 +52,8 @@ console.log('next line 2');
     'make dinner',
     'wash dishes',
     'watch youtube'
-].forEach(function (value, index) {
+    // ].forEach(function (value, index) {
+].forEach((value, index) => {
     if (value === 'wash dishes') {
         return;//does the same thing as contiue;
     }
@@ -165,3 +166,24 @@ function stopNotification() {
     clearInterval(intervalId);
     document.title = 'App';
 }
+//Regular Function: don't have shortcuts
+const regularFunction = function (param, param2) {
+    console.log('hello ');
+    return 5;
+};
+//Arrow Functions: have shortcuts
+const arrowFunction = (param, param2) => {
+    console.log('hello');
+    return 5;
+};
+arrowFunction();
+
+const oneParam = param => {
+    console.log(param + 1)
+};
+oneParam(2);
+
+// const oneLine = () => {
+//  return 2 + 3 };
+const oneLine = () => 2 + 3;
+console.log(oneLine());
