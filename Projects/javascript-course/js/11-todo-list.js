@@ -51,6 +51,12 @@ for (let i = 1; i <= 5; i++) {//loop variable;loop condition; increment step
 
 const todoList1 = [];//Todo List Practice 1
 
+//Update event.key
+document.querySelector('.js-add-todo-button')
+    .addEventListener('click', () => {
+        addTodo();
+    });
+
 function addTodo1() {
     const inputElement = document.querySelector('.js-name-input1');
     const name = inputElement.value;
@@ -119,16 +125,14 @@ function renderTodoList() {//render=to display something on the page
 
     let todoListHTML = '';//variable to store the result > `<p>${todo}</p>`
     //uptate lesson 12
-    todoList.forEach(function (todoObject, index) {
+    todoList.forEach((todoObject, index) => {
         const { name, dueDate } = todoObject;
         const html = `
         
             <div>${name}</div>
             <div>${dueDate}</div>
             <div>
-                <button class="delete-todo-button" onclick="
-                todoList.splice(${index},1);
-                renderTodoList();
+                <button class="delete-todo-button js-delete-todo-button" onclick="
                 ">Delete</button>
             </div>
             `;
@@ -159,6 +163,16 @@ function renderTodoList() {//render=to display something on the page
     */
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
+    //because we add a HTML fisrt, we need to put this after this line code
+    //querySelectorAll to get a list of all delete button on the page
+    document.querySelectorAll('.js-delete-todo-button')
+        .forEach((deleteButton, index) => {//loop through the list using forEach
+            deleteButton.addEventListener('click', () => {//for each delete button, add eventListener
+                todoList.splice(index, 1);
+                renderTodoList();//ran the same code we did before
+            });
+        })
+
     // Whenever we update the todo list, save in localStorage.
     saveToStorageTodo();
 }

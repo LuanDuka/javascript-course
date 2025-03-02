@@ -47,6 +47,35 @@ function autoPlay() {
         isAutoPlaying = false;
     }
 }
+//Update onclick to addEventListener
+document.querySelector('.js-rock-button')
+    .addEventListener('click', () => {
+        choice('Rock');
+    });
+document.querySelector('.js-paper-button')
+    .addEventListener('click', () => {
+        choice('Paper');
+    });
+document.querySelector('.js-scissor-button')
+    .addEventListener('click', () => {
+        choice('Scissor');
+    });
+//Update keyboard to play typing a letter
+document.body.addEventListener('keydown', (event) => {
+    console.log(event.key);
+    if (event.key === 'r') {
+        choice('Rock');
+    } else if (event.key === 'p') {
+        choice('Paper');
+    } else if (event.key === 's') {
+        choice('Scissor');
+    } else if (event.key === 'Escape') {
+        resetScore();
+    } else if (event.key === 'a') {
+        autoPlay();
+    }
+});
+
 
 // Função para processar a escolha do jogador
 function choice(playerMove) {

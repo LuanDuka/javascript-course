@@ -187,3 +187,28 @@ oneParam(2);
 //  return 2 + 3 };
 const oneLine = () => 2 + 3;
 console.log(oneLine());
+
+const object2 = {
+    method: () => {
+
+    },
+    //Shorthand Method sintax
+    method() {
+
+    }
+}
+//Method .addEventListener()
+//lets us run some code when we interact with the element
+const buttonElement = document.querySelector('.js-click-button');
+//Multiple event listeners for an event
+const eventListener = () => {//arrow function
+    console.log('click');
+};
+buttonElement.addEventListener('click', eventListener);
+
+buttonElement.addEventListener('click', () => {//arrow function
+    console.log('click2');
+});
+//Can remove an event listener . removeEventListener()
+buttonElement.removeEventListener('click', eventListener);
+//Best practice: use addEventListener() instead of onclick=""
