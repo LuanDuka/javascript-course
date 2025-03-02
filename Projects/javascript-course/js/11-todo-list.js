@@ -142,8 +142,8 @@ function renderTodoList() {//render=to display something on the page
 
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-
+    // Whenever we update the todo list, save in localStorage.
+    saveToStorageTodo();
 }
 
 function addTodo() {
@@ -166,6 +166,10 @@ function addTodo() {
     dateInputElement.value = '';
 
     renderTodoList();//everytime we add an item, we display the todo list again
+    saveToStorageTodo();
+}
+// Whenever we update the todo list, save in localStorage.
+function saveToStorageTodo() {
     localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 
