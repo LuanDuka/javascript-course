@@ -118,11 +118,8 @@ function renderTodoList() {//render=to display something on the page
 
 
     let todoListHTML = '';//variable to store the result > `<p>${todo}</p>`
-
-    for (let i = 0; i < todoList.length; i++) {
-        const todoObject = todoList[i];
-        //const name = todoObject.name; > SHORTCUTED
-        //const dueDate = todoObject.dueDate; > SHORTCUTED
+    //uptate lesson 12
+    todoList.forEach(function (todoObject, index) {
         const { name, dueDate } = todoObject;
         const html = `
         
@@ -130,16 +127,36 @@ function renderTodoList() {//render=to display something on the page
             <div>${dueDate}</div>
             <div>
                 <button class="delete-todo-button" onclick="
-                todoList.splice(${i},1);
+                todoList.splice(${index},1);
                 renderTodoList();
                 ">Delete</button>
             </div>
             `;
-        //Generating the HTML: for each 'todo', we create each 'html'
-        //combine all 'html' and put in the HTML web page: Accumulator Pattern
-        todoListHTML += html;
-    }
 
+        todoListHTML += html;
+    });
+    /*
+        for (let i = 0; i < todoList.length; i++) {
+            const todoObject = todoList[i];
+            //const name = todoObject.name; > SHORTCUTED
+            //const dueDate = todoObject.dueDate; > SHORTCUTED
+            const { name, dueDate } = todoObject;
+            const html = `
+            
+                <div>${name}</div>
+                <div>${dueDate}</div>
+                <div>
+                    <button class="delete-todo-button" onclick="
+                    todoList.splice(${i},1);
+                    renderTodoList();
+                    ">Delete</button>
+                </div>
+                `;
+            //Generating the HTML: for each 'todo', we create each 'html'
+            //combine all 'html' and put in the HTML web page: Accumulator Pattern
+            todoListHTML += html;
+        }
+    */
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
     // Whenever we update the todo list, save in localStorage.
