@@ -2,16 +2,16 @@ greeting();
 function greeting() {
     console.log('hello');
 }
-greeting();
+greeting();//calling the function
 
 const num = 2;
-const oneFunction = function () {
-    console.log('hello2');
+const oneFunction = function () {//puting a function inside a variable
+    console.log('hello21');
 };
 
 console.log(oneFunction);
-console.log(typeof oneFunction);
-oneFunction();
+console.log(typeof oneFunction);//variable is a function type
+oneFunction();//shows the console.log line 9
 
 const object1 = {
     num: 2,
@@ -38,13 +38,13 @@ run(function () {
 setTimeout(function () {
     console.log('timeout');
     console.log('timeout2');
-}, 3000);
+}, 3000);//happens after 3s
 
 console.log('next line');
 
 setInterval(function () {
     console.log('interval');
-}, 3000);
+}, 3000);//happens each 3s
 
 console.log('next line 2');
 //.forEach() is the preferred way to loop through an array
@@ -54,7 +54,7 @@ console.log('next line 2');
     'wash dishes',
     'watch youtube'
     // ].forEach(function (value, index) {
-].forEach((value, index) => {
+].forEach((value, index) => {//arrow function 
     if (value === 'wash dishes') {
         return;//does the same thing as contiue;
     }
@@ -142,7 +142,6 @@ function attMessages(count) {
     return messages;
 }
 
-
 function displayNotification() {
     // If we're already displaying the notification,
     // stop this function because we don't want to
@@ -159,7 +158,7 @@ function displayNotification() {
         } else {
             document.title = 'App';
         }
-    }, 1000);
+    }, 1000);//change title each 1s
 }
 function stopNotification() {
     isDisplayingNotification = false;
@@ -170,23 +169,23 @@ function stopNotification() {
 //Regular Function: don't have shortcuts
 const regularFunction = function (param, param2) {
     console.log('hello ');
-    return 5;
+    return 7;
 };
 //Arrow Functions: have shortcuts
 const arrowFunction = (param, param2) => {
     console.log('hello');
-    return 5;
+    return 7;
 };
 arrowFunction();
 
-const oneParam = param => {
+const oneParam = param => {//when have just one parameter
     console.log(param + 1)
 };
 oneParam(2);
 
 // const oneLine = () => {
 //  return 2 + 3 };
-const oneLine = () => 2 + 3;
+const oneLine = () => 2 + 3;//one line of code
 console.log(oneLine());
 
 const object2 = {
@@ -203,14 +202,14 @@ const object2 = {
 const buttonElement = document.querySelector('.js-click-button');
 //Multiple event listeners for an event
 const eventListener = () => {//arrow function
-    console.log('click');
+    console.log('click');//"listen" the 'click' of the button
 };
 buttonElement.addEventListener('click', eventListener);
 
 buttonElement.addEventListener('click', () => {//arrow function
     console.log('click2');
 });
-//Can remove an event listener . removeEventListener()
+//Can remove an event listener .removeEventListener()
 buttonElement.removeEventListener('click', eventListener);
 //Best practice: use addEventListener() instead of onclick=""
 
@@ -241,3 +240,53 @@ console.log([1, 1, 3].map(value => value * 2));
 //If a function has access to a value
 //It will always have access to that value
 //value gets packaged together (enclosed) with the function
+
+//12j-k
+const multiply = (a, b) => a * b;
+console.log(multiply(2, 3));
+console.log(multiply(7, 10));
+//12l
+function countPositive(nums) {
+    let positive = 0;
+
+    nums.forEach((value) => {
+        if (value > 0) {
+            positive++;
+        }
+    });
+    return positive;
+}
+console.log(countPositive([1, -3, 5]));
+console.log(countPositive([-2, 3, -5, 7, 10]));
+//12m
+function addNum(array, num) {
+    // When there is only 1 parameter, the brackets are optional
+    // So we can also write: value => value + num
+    return array.map(value => value + num);//because is a function, need return
+}
+console.log(addNum([1, 2, 3], 2));
+console.log(addNum([-2, -1, 0, 99], 2));
+//12n
+function removeEggs(foods) {
+    // If food is 'egg', the inner function returns false and the food is not included in the result.
+    // Otherwise, the inner function returns true and the food is included in the result. 
+    return foods.filter((food) => food !== 'egg');
+
+}
+console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
+//12o
+function removeEgg(foods) {
+    let eggsRemoved = 0;
+
+    return foods.filter((food) => {
+        // If the food is 'egg', we should return false but only if we haven't removed 2 eggs already
+        if (food === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            return false;
+        }
+        return true;
+
+    });
+
+}
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));

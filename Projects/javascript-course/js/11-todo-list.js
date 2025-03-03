@@ -423,7 +423,7 @@ function doubleArray(numms) {
 console.log(doubleArray([1, 1, 3]));
 console.log(doubleArray([2, 2, 5, 0, 5]));
 //11o-p
-function findSeach() {
+function findSeach() {//search for a value inside an array, return position index
     let words = ['hello', 'world', 'search', 'good', 'search'];
     let index = -1;
 
@@ -450,7 +450,7 @@ function findSeachs() {
     return index
 }
 console.log(findSeachs());
-//11q
+//11q looking word inside array
 function findIndexx(array, word) {
     let index = -1;
 
@@ -478,7 +478,7 @@ function removeEggs(foods) {
         } else {
             countEgg[food]++;//sum value into the word
         }
-        // If the string is 'egg', use continue to skip it.
+        // If the string is 'egg', use continue to skip it
         if (countEgg.egg < 3 && food === 'egg') {
             continue;
         }
@@ -500,8 +500,7 @@ function removeEgg(foods) {
     let eggsRemoved = 0;
 
     for (let i = 0; i < foods.length; i++) {
-      // Only skip 'egg' if we removed less than 2
-      // of them so far.
+      // Only skip 'egg' if we removed less than 2 of them so far.
       if (foods[i] === 'egg' && eggsRemoved < 2) {
         // Update the number of 'egg' we have removed.
         // This must be done before continue, otherwise,
@@ -568,7 +567,7 @@ console.log(foods);
 for (let i = 1; i <= 20; i++) {
 
 
-    if (i % 3 === 0 && i % 5 === 0) {
+    if (i % 3 === 0 && i % 5 === 0) {//skip divisible by 3 and 5
         console.log('FizzBuzz');
         continue;
     } else if (i % 3 === 0) {
@@ -602,7 +601,7 @@ function unique(array) {
 }
 console.log(unique((['green', 'red', 'blue', 'red'])));
 console.log(unique((['red', 'green', 'green', 'red'])));
-//previous exercise
+//previous exercise solution
 function findIndex(array, word) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === word) {
