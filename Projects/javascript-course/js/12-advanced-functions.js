@@ -81,7 +81,7 @@ function startButton() {
     const inputElement = document.querySelector('.start-button');
 
     inputElement.innerText = 'Loading...';
-    setTimeout(function () {
+    setTimeout(() => {
         inputElement.innerText = 'Finished!'
     }, 1000);
 }
@@ -96,7 +96,7 @@ function addToCart() {
     // it doesn't remove the message too quickly.
     clearInterval(intervalId);
 
-    intervalId = setTimeout(function () {
+    intervalId = setTimeout(() => {
         inputElement.innerText = '';
     }, 2000);
 }
@@ -152,7 +152,7 @@ function displayNotification() {
 
     isDisplayingNotification = true;
 
-    intervalId = setInterval(function () {
+    intervalId = setInterval(() => {
         if (document.title === 'App') {
             document.title = `(${messages}) New messages`;
         } else {
