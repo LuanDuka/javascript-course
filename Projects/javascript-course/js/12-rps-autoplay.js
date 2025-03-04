@@ -15,6 +15,50 @@ if (!score || typeof score !== 'object') {
     };
 }
 
+//Reset score
+const resetScoreButton = document.querySelector('.reset-score-button');
+const sureMessageInput = document.querySelector('.sure-message');
+
+const resetScoreListener = () => {
+    //Show sure message
+    sureMessageInput.innerHTML = `
+     <div>
+         Are you sure you want to reset the score? 
+         <button class="js-sure-button">Yes</button>
+         <button class="js-sure-button">No</button>
+     </div>
+     `;
+    //querySelectorAll ensure that the buttons are correctly selected after the HTML is dynamically updated
+    const sureMessageButton = document.querySelectorAll('.js-sure-button');
+    // if (sureMessageButton.length > 0)) to make sure buttons exist before attaching the event listeners
+    // This can prevent the error in case the buttons haven't been rendered yet
+    if (sureMessageButton.length > 0) {// Check if buttons are present
+        sureMessageButton.forEach(button => {
+            button.addEventListener('click', () => {//Fixed the typo 'Click' to 'click' for the event listener
+                if (button.textContent.trim().toLowerCase() === 'yes') {
+                    score.wins = 0;
+                    score.losses = 0;
+                    score.ties = 0;
+                    localStorage.removeItem('score');
+                    //hide the message
+                    sureMessageInput.innerHTML = '';
+                    // Atualiza os elementos na tela
+                    updateScoreElement();
+                    resultElement('');
+                    movesElement('', '');
+                } else if (button.textContent.trim().toLowerCase() === 'no') {
+                    sureMessageInput.innerHTML = '';
+                }
+            })
+        })
+    }
+}
+resetScoreButton.addEventListener('click', resetScoreListener);
+
+function sureMessage() {
+
+}
+/*
 // Função para resetar o placar
 function resetScore() {
     score.wins = 0;
@@ -27,7 +71,7 @@ function resetScore() {
     resultElement('');
     movesElement('', '');
 }
-
+*/
 let isAutoPlaying = false;
 let intervalId;//save the ID
 
@@ -50,7 +94,7 @@ const autoPlayListener = () => {
     }
     if (autoPlayButton.innerText === 'Auto Play') {
         autoPlayButton.innerText = 'Stop Playing';
-    } else if (autoPlayButton.innerText === 'Stop Playing') {
+    } else {
         autoPlayButton.innerText = 'Auto Play';
     }
 }
@@ -86,14 +130,16 @@ document.querySelector('.js-scissor-button')
 //Update keyboard to play typing a letter
 document.body.addEventListener('keydown', (event) => {
     console.log(event.key);
+    console.log(event.code);
     if (event.key === 'r') {
         choice('Rock');
     } else if (event.key === 'p') {
         choice('Paper');
     } else if (event.key === 's') {
         choice('Scissor');
-    } else if (event.key === 'Escape') {
-        resetScore();
+    } else if (event.key === 'Backspace') {
+        event.preventDefault();// Prevent browser from navigating back
+        resetScoreListener();
     } else if (event.key === 'a') {
         autoPlayListener();
     }
