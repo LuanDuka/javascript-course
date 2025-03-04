@@ -76,18 +76,22 @@ runTwice(function () {
     console.log('12b');
 });
 runTwice(add);
-//12c-d
-function startButton() {
-    const inputElement = document.querySelector('.start-button');
+//12c-d updated 12q
 
-    inputElement.innerText = 'Loading...';
+const inputStartButton = document.querySelector('.start-button');
+
+const loadingFinished = () => {
+    inputStartButton.innerText = 'Loading...';
     setTimeout(() => {
-        inputElement.innerText = 'Finished!'
+        inputStartButton.innerText = 'Finished!'
     }, 1000);
+    // console.log('cliki');
 }
-//12e-f
-//let intervalId;//save the ID
+inputStartButton.addEventListener('click', loadingFinished);
 
+//12e-f updated 12q
+//let intervalId;//save the ID
+/*
 function addToCart() {
     const inputElement = document.querySelector('.text-added');
     inputElement.innerText = 'Added';
@@ -99,7 +103,7 @@ function addToCart() {
     intervalId = setTimeout(() => {
         inputElement.innerText = '';
     }, 2000);
-}
+}*/
 //12g-i
 let messages = 2;
 /*
@@ -127,7 +131,7 @@ let isDisplayingNotification;
 // Start displaying the notification in the tab
 // when the page first loads.
 displayNotification();
-
+/*
 function attMessages(count) {
     messages += count; // Update the messages variable
 
@@ -140,7 +144,7 @@ function attMessages(count) {
 
     console.log(messages); // Debugging: log the current value of messages
     return messages;
-}
+}*/
 
 function displayNotification() {
     // If we're already displaying the notification,
@@ -290,3 +294,45 @@ function removeEgg(foods) {
 
 }
 console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+//12q update button
+const inputAddToCartButton = document.querySelector('.add-to-cart-button')
+
+const addToCartListener = () => {
+    const inputElement = document.querySelector('.text-added');
+    inputElement.innerText = 'Added';
+
+    // First, cancel the previous timeout so that
+    // it doesn't remove the message too quickly.
+    clearInterval(intervalId);
+
+    intervalId = setTimeout(() => {
+        inputElement.innerText = '';
+    }, 2000);
+}
+inputAddToCartButton.addEventListener('click', addToCartListener);
+//12q update 12i
+const attMessagesButtons = document.querySelectorAll('.att-messages-button');
+
+const attMessagesListener = (count) => {
+    messages += count; // Update messages
+
+    if (messages <= 0) {
+        messages = 0; // Prevent negative values
+        stopNotification();
+    } else {
+        displayNotification();
+    }
+
+    console.log(messages);
+};
+// Attach event listeners with a wrapper function to pass the right count
+attMessagesButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.textContent.trim().toLowerCase() === "add") {
+            attMessagesListener(1);  // Pass +1 when clicking "Add"
+        } else {
+            attMessagesListener(-1); // Pass -1 when clicking "Remove"
+        }
+    });
+});
+//12r
