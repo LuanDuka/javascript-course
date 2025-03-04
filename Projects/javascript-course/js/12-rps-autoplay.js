@@ -34,6 +34,28 @@ let intervalId;//save the ID
 // const autoPlay = () => {
 
 // };
+const autoPlayButton = document.querySelector('.auto-play-button');
+
+const autoPlayListener = () => {
+    if (!isAutoPlaying) {
+        intervalId = setInterval(() => {//add arrow function
+            const playerMove = pickComputerMove();
+            choice(playerMove);
+        }, 1000);
+        isAutoPlaying = true;
+
+    } else {
+        clearInterval(intervalId);//call the ID to stop
+        isAutoPlaying = false;
+    }
+    if (autoPlayButton.innerText === 'Auto Play') {
+        autoPlayButton.innerText = 'Stop Playing';
+    } else if (autoPlayButton.innerText === 'Stop Playing') {
+        autoPlayButton.innerText = 'Auto Play';
+    }
+}
+autoPlayButton.addEventListener('click', autoPlayListener);
+/*
 function autoPlay() {
     if (!isAutoPlaying) {
         intervalId = setInterval(() => {//add arrow function
@@ -47,6 +69,7 @@ function autoPlay() {
         isAutoPlaying = false;
     }
 }
+    */
 //Update onclick to addEventListener
 document.querySelector('.js-rock-button')
     .addEventListener('click', () => {
@@ -72,7 +95,7 @@ document.body.addEventListener('keydown', (event) => {
     } else if (event.key === 'Escape') {
         resetScore();
     } else if (event.key === 'a') {
-        autoPlay();
+        autoPlayListener();
     }
 });
 
