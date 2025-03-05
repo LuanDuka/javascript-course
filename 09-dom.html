@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div>
+        <h2>YouTube Subscribe Button</h2>
+        <button onclick="subscribe()" class="js-subscribe-button css-subscribe-button">Subscribe</button>
+        <!-- <button class="js-button">Second button</button> -->
+    </div>
+
+    <div>
+        <p>Amazon Shiping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input class="js-cost-input css-cost-input" onkeydown="typing(event)" placeholder="Cost of order">
+        <button class="calculate-button" onclick="calculateTotal()">Calculate</button>
+        <p class="js-total-cost"></p>
+    </div>
+
+    <div>
+        <h2>Lesson 09 Excecises</h2>
+        <button class="button-9a">9a</button>
+        <button class="button-9b">9b</button>
+        <p>
+            <button onclick="yourChoice('heads')">heads</button>
+            <button onclick="yourChoice('tails')">tails</button>
+        <p class="your-choice"></p>
+        </p>
+        <input class="js-submit" placeholder="Name" onkeydown="named(event)">
+        <button onclick="submitName()">Submit</button>
+        <p class="your-name-submit"></p>
+    </div>
+
+    <div>
+        <input class="js-input-copy" onkeyup="updateText()" placeholder="Tap here">
+        <p class="js-text-copy"></p>
+    </div>
+
+    <script src="javascrip 07 copy.js"></script>
+</body>

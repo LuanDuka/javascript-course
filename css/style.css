@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.addToCart-button {
+    background-color: yellow;
+    color: black;
+    border-color: yellow;
+}
+
+.addToCart-button:hover {
+    background-color: rgb(241, 241, 10);
+    border-color: yellow;
+}
+
+.buyNow-button {
+    background-color: orange;
+    color: rgb(0, 0, 0);
+    border-color: orange;
+}
+
+.buyNow-button:hover {
+    background-color: rgb(238, 159, 12);
+    border-color: orange;
+}
+
+.buttonBlack {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    margin: 3px;
+    font-size: 25px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+}
+
+.button {
+    background-color: orange;
+}
+
+.clear {
+    font-size: 20px;
+}
+
+.backGround {
+    background-color: rgb(0, 0, 0);
+}
+
+.numbers {
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: bold; */
+    font-size: 30px;
+    /* border: 1px solid white; */
+    text-align: right;
+    width: 260px;
+    height: 40px;
+    margin-bottom: 1px;
+}
+
+.everyButton {
+    width: 300px;
+    /* border: 1px solid white; */
+    align-items: stretch;
+}
+
+/* Lesson 10 */
+.css-subscribe-button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 105px;
+    margin-bottom: 30px;
+}
+
+.is-subscribed {
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+.css-cost-input {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.calculate-button {
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+/* Rock Paper Scissor */
+.div-rock-paper-scissor {
+    display: grid;
+    place-items: center;
+    height: 700px;
+    background-color: rgb(25, 25, 25);
+    color: white;
+
+}
+
+.css-result {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.b-rock-paper-scissor {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.move-icon {
+    height: 70px;
+}
+
+.move-button {
+    background-color: transparent;
+    border: 3px solid white;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.reset-score-button,
+.auto-play-button {
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* Lesson 10 exercise */
+.add-amazon-button {
+    border: none;
+    background-color: rgb(255, 216, 20);
+    padding: 5px 40px;
+    font-size: 15px;
+    border-radius: 60px;
+}
+
+.request-uber-button {
+    border: none;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.scheduel-uber-button {
+    border: none;
+    background-color: rgb(230, 230, 230);
+    padding: 15px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.css-tuggled {
+    border: none;
+    padding: 15px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.is-toggled {
+    background-color: black;
+    color: white;
+}
+
+.redText {
+    color: red;
+}

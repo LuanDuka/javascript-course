@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Auto Play</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="div-rock-paper-scissor">
+        <p class="p-rock-paper-scissor">Rock Paper Scissor</p>
+        <div class="b-rock-paper-scissor">
+            <button class="move-button js-rock-button"><img class="move-icon" src="img/rock.png"></button>
+            <button class="move-button js-paper-button"><img class="move-icon" src="img/paper.png"></button>
+            <button class="move-button js-scissor-button"><img class="move-icon" src="img/scissor.png"></button>
+        </div>
+
+        <div>
+            <p class="js-result css-result"></p>
+            <p class="js-moves"></p>
+            <p class="js-score"></p>
+        </div>
+        <div>
+            <p>
+                <button class="reset-score-button" onclick="">Reset Score</button>
+                <button class="auto-play-button" onclick="">Auto Play</button>
+            </p>
+        </div>
+        <div class="sure-message"></div>
+    </div>
+
+    <script src="js/12-rps-autoplay.js"></script>
+</body>
+
+</html>

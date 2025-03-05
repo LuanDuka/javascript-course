@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div>
+        <p>
+            Adults Plain Cotton T-shirt
+        </p>
+        <p>
+            Price: $7.99
+        </p>
+        <button title="Good job!" class="addToCart-button" onclick="addClicked()">
+            Add to cart
+        </button>
+        <button title="Good job!" class="buyNow-button" onclick="buyClicked()">
+            Buy now
+        </button>
+    </div>
+
+    <div>
+        <p>Amazon button</p>
+        <button class="add-amazon-button">Add to Cart</button>
+    </div>
+    <div>
+        <p>Uber button</p>
+        <button class="request-uber-button">Request now</button>
+        <button class="scheduel-uber-button">Schedule for later</button>
+    </div>
+    <div>
+        <p>Test Class List</p>
+        <button class="js-test-button">Test</button>
+    </div>
+    <div>
+        <p>Lesson 10 Exercises</p>
+        <button onclick="toggledOnOff('.js-button')" class="js-button css-tuggled">Gaming</button>
+        <button onclick="toggledOnOff('.js-button-2')" class="js-button-2 css-tuggled">Music</button>
+        <button onclick="toggledOnOff('.js-button-3')" class="js-button-3 css-tuggled">Tech</button>
+    </div>
+
+    <div>
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input class="js-cost-input css-cost-input" onkeydown="typing(event)" placeholder="Cost of order">
+        <button class="calculate-button" onclick="calculateTotal()">Calculate</button>
+        <p class="js-total-cost"></p>
+    </div>
+
+
+    <!-- This is a comment. -->
+    <script src="js/lesson10.js"></script>
+</body>

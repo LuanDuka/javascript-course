@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity Copy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <p>
+        Cart Quantity COPY
+    </p>
+
+    <p>
+        <button class="show-quantity-button" onclick="showItemQuantity()">
+            Show Quantity
+        </button>
+    </p>
+    <p class="displayQuantity"></p>
+    <p>
+        <button class="add-to-cart-button" onclick="addItemToCart(1)">
+            Add to Cart
+        </button>
+
+        <button class="plusTwo-button" onclick="addItemToCart(2)">
+            +2
+        </button>
+        <button class="plusthree-button" onclick="addItemToCart(3)">
+            +3
+        </button>
+        <button class="plusthree-button" onclick="addItemToCart(4)">
+            +4
+        </button>
+        <button class="plusthree-button" onclick="addItemToCart(5)">
+            +5
+        </button>
+    </p>
+    <p>
+        <button class="remove-from-cart-button" onclick="removeItemFromCart(1)">
+            Remove from Cart
+        </button>
+        <button class="minusTwo-button" onclick="removeItemFromCart(2)">
+            -2
+        </button>
+        <button class="minussthree-button" onclick="removeItemFromCart(3)">
+            -3
+        </button>
+    </p>
+    <p>
+        <button class="reset-cart-button" onclick="resetCartButton()">
+            Reset Cart
+        </button>
+    </p>
+
+    <!-- This is a comment. -->
+    <script src="js/javascrip.js"></script>
+    <!-- <script>
+        let quantitadeCarrinho = 0;
+    </script> -->
+    <!-- quantitadeCarrinho = quantitadeCarrinho+1;console.log(`Carrinho tem: ${quantitadeCarrinho}`) -->
+</body>
+
+</html>
