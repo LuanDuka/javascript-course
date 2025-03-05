@@ -84,9 +84,17 @@ document.querySelectorAll('.js-add-to-cart')
                 cart.push({
                     productId: productId,
                     quantity: 1
-                })
-                console.log(cart);
+                });
             }
+
+            let cartQuantity = 0;
+
+            cart.forEach((item) => {//loop through each iten in the cart
+                cartQuantity += item.quantity;//sum the quantity in this variable
+            });
+
+            document.querySelector('.js-cart-quantity')
+                .innerHTML = cartQuantity;//update cart quantity on html
         });
     });
 
@@ -94,3 +102,4 @@ document.querySelectorAll('.js-add-to-cart')
 //Data Attribute
 //-is just another HTML  attribute
 //-allows us to attach any information to an element
+
