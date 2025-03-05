@@ -55,14 +55,42 @@ products.forEach((product) => {
             Added
             </div>
 
-            <button class="add-to-cart-button button-primary">
+            <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
             Add to Cart
             </button>
         </div>
 `;
 });
 
-console.log(productsHTML);
-
 document.querySelector('.js-products-grid')
     .innerHTML = productsHTML;
+
+document.querySelectorAll('.js-add-to-cart')
+    .forEach((button) => {//looping through the buttons
+        button.addEventListener('click', () => {
+            const productId = button.dataset.productId;
+
+            let matchingItem;
+
+            cart.forEach((item) => {//loop through the cart
+                if (productId === item.productId) {//if product exist in the cart
+                    matchingItem = item;//save item in a variable
+                }
+            });
+
+            if (matchingItem) {//truthy value
+                matchingItem.quantity += 1;
+            } else {
+                cart.push({
+                    productId: productId,
+                    quantity: 1
+                })
+                console.log(cart);
+            }
+        });
+    });
+
+//How do we know which product to add?
+//Data Attribute
+//-is just another HTML  attribute
+//-allows us to attach any information to an element
