@@ -6,6 +6,7 @@ Main idea of JavaScrip
 */
 console.log('hello');
 //data structure: combination of objects and arrays  
+import { cart } from '../data/cart.js';
 
 let productsHTML = '';
 
@@ -109,11 +110,11 @@ document.querySelectorAll('.js-add-to-cart')
             }
             const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
             addedMessage.classList.add('added-to-cart-visible');//adding a class to the message
-            // Check if there's a previous timeout for this product. If there is, we should stop it
 
+            // Check if there's a previous timeout for this product
             const previousTimeoutId = addedMessageTimeouts[productId];
             if (previousTimeoutId) {
-                clearTimeout(previousTimeoutId);
+                clearTimeout(previousTimeoutId);//If there is, we should stop it
             }
 
             const timeoutId = setTimeout(() => {
