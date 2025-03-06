@@ -656,20 +656,5 @@ const products = [
       "apparel",
       "mens"
     ]
-  }, {
-    id: "bc9865e9-8452-403f-b7cf-57fde224a875",
-    image: "images/products/backpack.jpg",
-    name: "Adult Backpack - Black",
-    rating: {
-      stars: 4.5,
-      count: 486
-    },
-    priceCents: 1700,
-    keywords: [
-      "travel",
-      "laptop bags",
-      "carry-ons",
-      "mens"
-    ]
   }
 ];
