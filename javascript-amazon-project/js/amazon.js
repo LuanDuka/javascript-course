@@ -50,7 +50,7 @@ products.forEach((product) => {
 
             <div class="product-spacer"></div>
 
-            <div class="added-to-cart">
+            <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
             </div>
@@ -64,12 +64,16 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid')
     .innerHTML = productsHTML;
+//to control added timeout
+const addedMessageTimeouts = {};//each product will have its own timeoutId
 
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {//looping through the buttons
         button.addEventListener('click', () => {
             // const productId = button.dataset.productId;
             const { productId } = button.dataset;
+
+
 
             const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
@@ -101,10 +105,23 @@ document.querySelectorAll('.js-add-to-cart')
 
                 document.querySelector('.js-cart-quantity')
                     .innerHTML = cartQuantity;//update cart quantity on html
+
+            }
+            const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
+            addedMessage.classList.add('added-to-cart-visible');//adding a class to the message
+            // Check if there's a previous timeout for this product. If there is, we should stop it
+
+            const previousTimeoutId = addedMessageTimeouts[productId];
+            if (previousTimeoutId) {
+                clearTimeout(previousTimeoutId);
             }
 
+            const timeoutId = setTimeout(() => {
+                addedMessage.classList.remove('added-to-cart-visible');
+            }, 2000);
 
-            console.log(quantity);
+            // Save the timeoutId for this product so we can stop it later if we need to
+            addedMessageTimeouts[productId] = timeoutId;
 
         });
     });
