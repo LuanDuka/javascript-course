@@ -5,7 +5,7 @@ Main idea of JavaScrip
 3. Make it interactive
 */
 //data structure: combination of objects and arrays  
-import { cart } from '../data/cart.js';
+import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 let productsHTML = '';
@@ -68,44 +68,28 @@ document.querySelector('.js-products-grid')
 //to control added timeout
 const addedMessageTimeouts = {};//each product will have its own timeoutId
 
+function updateCartQuantity() {
+    let cartQuantity = 0;
+
+    cart.forEach((cartItem) => {//loop through each iten in the cart
+        cartQuantity += cartItem.quantity;//sum the quantity in this variable
+    });
+
+    document.querySelector('.js-cart-quantity')
+        .innerHTML = cartQuantity;//update cart quantity on html
+}
+
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {//looping through the buttons
         button.addEventListener('click', () => {
             // const productId = button.dataset.productId;
             const { productId } = button.dataset;
 
-
-
             const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
             if (quantity) {
-                let matchingItem;
-
-                cart.forEach((item) => {//loop through the cart
-                    if (productId === item.productId) {//if product exist in the cart
-                        matchingItem = item;//save item in a variable
-                    }
-                });
-
-                if (matchingItem) {//truthy value
-                    matchingItem.quantity += quantity;
-                } else {
-                    cart.push({
-                        //productId: productId,
-                        //quantity: quantity
-                        productId,
-                        quantity
-                    });
-                }
-
-                let cartQuantity = 0;
-
-                cart.forEach((item) => {//loop through each iten in the cart
-                    cartQuantity += item.quantity;//sum the quantity in this variable
-                });
-
-                document.querySelector('.js-cart-quantity')
-                    .innerHTML = cartQuantity;//update cart quantity on html
+                addToCart(productId, quantity);
+                updateCartQuantity();
 
             }
             const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
