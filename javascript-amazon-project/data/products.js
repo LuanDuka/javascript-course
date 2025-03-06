@@ -671,5 +671,20 @@ const products = [
       "carry-ons",
       "mens"
     ]
+  }, {
+    id: "bc1423e9-4254-553f-b7cf-57fde253a215",
+    image: "images/products/umbrella.jpg",
+    name: "Umbrella - Green",
+    rating: {
+      stars: 4,
+      count: 751
+    },
+    priceCents: 800,
+    keywords: [
+      "travel",
+      "rain",
+      "parasol",
+      "women"
+    ]
   }
 ];
