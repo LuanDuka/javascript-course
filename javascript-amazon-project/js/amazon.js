@@ -4,9 +4,9 @@ Main idea of JavaScrip
 2. Gerenate the HTML
 3. Make it interactive
 */
-console.log('hello');
 //data structure: combination of objects and arrays  
 import { cart } from '../data/cart.js';
+import { products } from '../data/products.js';
 
 let productsHTML = '';
 
