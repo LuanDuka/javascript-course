@@ -6,17 +6,17 @@ let cartSummaryHTML = '';
 
 //use productId in cart.js to search products details
 cart.forEach((cartItem) => {
-    const productId = cartItem.productId;//get productId out of cartItem and use to search the full product
+  const productId = cartItem.productId;//get productId out of cartItem and use to search the full product
 
-    let matchingProduct;
+  let matchingProduct;
 
-    products.forEach((product) => {//looping through the products array on products.js
-        if (product.id === productId) {//check id property = cart item(product)
-            matchingProduct = product;//save in this variable
-        }
-    });
+  products.forEach((product) => {//looping through the products array on products.js
+    if (product.id === productId) {//check id property = cart item(product)
+      matchingProduct = product;//save in this variable
+    }
+  });
 
-    cartSummaryHTML += `
+  cartSummaryHTML += `
      <div class="cart-item-container
      js-cart-item-container${matchingProduct.id}">
           <div class="delivery-date">
@@ -90,16 +90,32 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector('.js-order-summary')
-    .innerHTML = cartSummaryHTML;
+  .innerHTML = cartSummaryHTML;
 
 document.querySelectorAll('.js-delete-link')
-    .forEach((link) => {
-        link.addEventListener('click', () => {
-            const { productId } = link.dataset;
-            removeFromCart(productId);
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const { productId } = link.dataset;
+      removeFromCart(productId);
 
-            const container = document.querySelector(`.js-cart-item-container${productId}`);
+      const container = document.querySelector(`.js-cart-item-container${productId}`);
 
-            container.remove();
-        });
+      container.remove();
+
+      updateCartQuantity();
     });
+  });
+
+
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {//loop through each iten in the cart
+    cartQuantity += cartItem.quantity;//sum the quantity in this variable
+  });
+
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${cartQuantity} items`;//update cart quantity on html
+
+}
+updateCartQuantity();
