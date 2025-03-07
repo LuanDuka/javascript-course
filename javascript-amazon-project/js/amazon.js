@@ -72,7 +72,6 @@ const addedMessageTimeouts = {};//each product will have its own timeoutId
 function updateCartQuantity() {
     document.querySelector('.js-cart-quantity')
         .innerHTML = calculateCartQuantity();//update cart quantity on html
-
 }
 
 updateCartQuantity();//shows cart quantity when the page loads
