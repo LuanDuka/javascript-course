@@ -5,7 +5,7 @@ Main idea of JavaScrip
 3. Make it interactive
 */
 //data structure: combination of objects and arrays  
-import { cart, addToCart } from '../data/cart.js';
+import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
@@ -70,15 +70,12 @@ document.querySelector('.js-products-grid')
 const addedMessageTimeouts = {};//each product will have its own timeoutId
 
 function updateCartQuantity() {
-    let cartQuantity = 0;
-
-    cart.forEach((cartItem) => {//loop through each iten in the cart
-        cartQuantity += cartItem.quantity;//sum the quantity in this variable
-    });
-
     document.querySelector('.js-cart-quantity')
-        .innerHTML = cartQuantity;//update cart quantity on html
+        .innerHTML = calculateCartQuantity();//update cart quantity on html
+
 }
+
+updateCartQuantity();//shows cart quantity when the page loads
 
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {//looping through the buttons
