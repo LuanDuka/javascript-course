@@ -86,3 +86,17 @@ export function updateQuantity(productId, newQuantity) {
 document.body.addEventListener('keydown', (event) => {
 
 })
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+    let matchingItem;
+
+    cart.forEach((cartItem) => {//loop through the cart
+        if (productId === cartItem.productId) {//if product exist in the cart
+            matchingItem = cartItem;//save item in a variable
+        }
+    });
+
+    matchingItem.deliveryOptionId = deliveryOptionId;
+
+    saveToStorage();
+}
