@@ -140,7 +140,7 @@ document.querySelectorAll('.js-update-link')
 
 document.querySelectorAll('.js-save-link')
   .forEach((link) => {
-    link.addEventListener('click', () => {
+    const handleUpdate = () => {
       const { productId } = link.dataset;
 
       const quantityInput = document.querySelector(
@@ -152,6 +152,7 @@ document.querySelectorAll('.js-save-link')
         alert('Quantity must be at least 0 and less than 1000');
         return;
       }
+
       const container = document.querySelector(
         `.js-cart-item-container${productId}`
       );
@@ -163,9 +164,20 @@ document.querySelectorAll('.js-save-link')
         `.js-quantity-label-${productId}`
       );
       quantityLabel.innerHTML = newQuantity;
-      quantityInput.value = '';
+      quantityInput.value = '';//Clean the input value
 
       updateCartQuantity();
-    });
+    };
+    //Click event
+    link.addEventListener('click', handleUpdate);
+    // Attach keydown event to the related input field
+    const quantityInput = document.querySelector(`.js-quantity-input-${link.dataset.productId}`);
+    if (quantityInput) {
+      quantityInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          handleUpdate();
+        }
+      });
+    }
   });
 
