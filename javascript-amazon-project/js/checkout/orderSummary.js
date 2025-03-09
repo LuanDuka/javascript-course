@@ -162,6 +162,7 @@ export function renderOrderSummary() {
                     `.js-cart-item-container${productId}`
                 );
                 container.classList.add('is-editing-quantity');
+
             });
         });
 
@@ -193,6 +194,7 @@ export function renderOrderSummary() {
                 quantityLabel.innerHTML = newQuantity;
                 quantityInput.value = '';//Clean the input value
 
+                renderPaymentSummary();
                 updateCartQuantity();
             };
             //Click event
