@@ -1,3 +1,6 @@
+import { isWeekend } from "./15-external-libraries.js";
+
+
 //Update
 // Declaração da variável score no topo do arquivo
 let score = JSON.parse(localStorage.getItem('score')) || {

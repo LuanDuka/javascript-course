@@ -1,3 +1,5 @@
+import isSatSun from './15-external-libraries.js';
+
 greeting();
 function greeting() {
     console.log('hello');
@@ -336,3 +338,5 @@ attMessagesButtons.forEach(button => {
     });
 });
 //12r-s update rock paper scissor
+
+console.log(isSatSun('Friday', 'Monday'));
