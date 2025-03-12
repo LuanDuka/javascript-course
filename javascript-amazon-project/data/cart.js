@@ -50,6 +50,7 @@ export function addToCart(productId, quantity) {
     }
 
     saveToStorage();
+    return cart;
 }
 
 export function removeFromCart(productId) {
