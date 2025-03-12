@@ -53,3 +53,11 @@ if (formatCurrency(2000.4) === '20.00') {//Edge cases
     console.log('failed');
 }
 
+/*
+Testing Framework
+    = external libray that helps us write tests easier
+
+    Jasmine
+        Most testing framework are similar
+        Other testing frameworks: Jest (for ReactjS) and MochaJS
+*/
