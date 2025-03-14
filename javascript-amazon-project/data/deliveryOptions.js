@@ -23,7 +23,7 @@ export function getDeliveryOption(deliveryOptionId) {
         }
     });
 
-    return deliveryOption || deliveryOption[0];
+    return deliveryOption || deliveryOptions[0];
 }
 
 export function calculateDeliveryDate(deliveryOption) {
@@ -35,4 +35,6 @@ export function calculateDeliveryDate(deliveryOption) {
     const dateString = deliveryDate.format(
         'dddd, MMMM D'
     );
+
+    return dateString;
 }
