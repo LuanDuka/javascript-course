@@ -53,6 +53,15 @@ if (formatCurrency(2000.4) === '20.00') {//Edge cases
     console.log('failed');
 }
 
+console.log('negative number');
+
+
+if (formatCurrency(-1) === '0.00') {//Edge cases
+    console.log('passed');
+} else {
+    console.log('failed');
+}
+
 /*
 Testing Framework
     = external libray that helps us write tests easier
