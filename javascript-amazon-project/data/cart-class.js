@@ -6,15 +6,15 @@ import { validDeliveryOption } from './deliveryOptions.js';
 
 class Cart {//Use PascalCase for things that generate objects
     cartItems;//shortcut for: export let cart = undefined;
-    localStorageKey;//shortcut for: localStorageKey = undefined;
+    #localStorageKey;// # before make it Privet Property(field), can only be used inside the class
 
     constructor(localStorageKey) {
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage() {//not use arrow function > Shortcut for: loadFroStorage: function(){}
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage() {//not use arrow function > Shortcut for: loadFroStorage: function(){}
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
 
         if (!this.cartItems) {
             this.cartItems = [{
@@ -30,7 +30,7 @@ class Cart {//Use PascalCase for things that generate objects
     }
     //3. Import
     saveToStorage() {
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
     }
 
     addToCart(productId, quantity) {
@@ -121,7 +121,6 @@ class Cart {//Use PascalCase for things that generate objects
 
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
-
 
 
 // Add event listener outside the cart object
