@@ -2,6 +2,8 @@
 //Get a Variable Out of a Files
 //1. Add type="module"attribute
 //2. Export
+import { validDeliveryOption } from './deliveryOptions.js';
+
 export let cart;
 
 loadFromStorage();
@@ -103,6 +105,14 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
             matchingItem = cartItem;//save item in a variable
         }
     });
+
+    if (!matchingItem) {//if we give it a productId that is not in the cart: no update, no save
+        return;
+    }
+
+    if (!validDeliveryOption(deliveryOptionId)) {
+        return;
+    }
 
     matchingItem.deliveryOptionId = deliveryOptionId;
 
