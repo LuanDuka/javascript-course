@@ -5,9 +5,10 @@ Main idea of JavaScrip
 3. Make it interactive
 */
 //data structure: combination of objects and arrays  
-import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
+import { calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
+import { cart } from '../data/cart-class.js';
 
 let productsHTML = '';
 
@@ -88,7 +89,7 @@ document.querySelectorAll('.js-add-to-cart')
             const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
             if (quantity) {
-                addToCart(productId, quantity);
+                cart.addToCart(productId, quantity);
                 updateCartQuantity();
 
             }

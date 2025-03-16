@@ -119,7 +119,7 @@ class Cart {//Use PascalCase for things that generate objects
     }
 }
 
-const cart = new Cart('cart-oop');
+export const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
 

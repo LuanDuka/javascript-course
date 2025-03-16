@@ -1,4 +1,4 @@
-import { cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliveryOption } from '../../data/cart.js';
+import { calculateCartQuantity, updateQuantity, } from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
@@ -6,6 +6,7 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption, calculateDeliveryDate } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
 import { renderCheckoutHeader } from './checkoutHeader.js';
+import { cart } from '../../data/cart-class.js';
 
 export { dayjs };
 
@@ -14,7 +15,7 @@ export function renderOrderSummary() {
     let cartSummaryHTML = '';
 
     //use productId in cart.js to search products details
-    cart.forEach((cartItem) => {
+    cart.cartItems.forEach((cartItem) => {
         const productId = cartItem.productId;//get productId out of cartItem and use to search the full product
 
         const matchingProduct = getProduct(productId);
@@ -127,7 +128,7 @@ export function renderOrderSummary() {
         .forEach((link) => {
             link.addEventListener('click', () => {
                 const { productId } = link.dataset;
-                removeFromCart(productId);
+                cart.removeFromCart(productId);
 
                 const container = document.querySelector(
                     `.js-cart-item-container${productId}`
@@ -208,7 +209,7 @@ export function renderOrderSummary() {
         .forEach((element) => {
             element.addEventListener('click', () => {
                 const { productId, deliveryOptionId } = element.dataset;//get those parameter out
-                updateDeliveryOption(productId, deliveryOptionId);
+                cart.updateDeliveryOption(productId, deliveryOptionId);
                 renderOrderSummary();
                 renderPaymentSummary();
             });
