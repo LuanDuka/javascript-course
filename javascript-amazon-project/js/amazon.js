@@ -6,16 +6,19 @@ Main idea of JavaScrip
 */
 //data structure: combination of objects and arrays  
 import { calculateCartQuantity } from '../data/cart.js';
-import { products } from '../data/products.js';
+import { products, loadProducts } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { cart } from '../data/cart-class.js';
 
-let productsHTML = '';
+loadProducts(renderProductsGrid);
 
-//looping through the array above
-products.forEach((product) => {
-    //Acumulator Pattern
-    productsHTML += `
+function renderProductsGrid() {//group the conde into a function
+    let productsHTML = '';
+
+    //looping through the array above
+    products.forEach((product) => {
+        //Acumulator Pattern
+        productsHTML += `
         <div class="product-container">
                 <div class="product-image-container">
                      <img class="product-image" src="${product.image}">
@@ -66,54 +69,54 @@ products.forEach((product) => {
             </button>
         </div>
 `;
-});
-
-document.querySelector('.js-products-grid')
-    .innerHTML = productsHTML;
-//to control added timeout
-const addedMessageTimeouts = {};//each product will have its own timeoutId
-
-function updateCartQuantity() {
-    document.querySelector('.js-cart-quantity')
-        .innerHTML = calculateCartQuantity();//update cart quantity on html
-}
-
-updateCartQuantity();//shows cart quantity when the page loads
-
-document.querySelectorAll('.js-add-to-cart')
-    .forEach((button) => {//looping through the buttons
-        button.addEventListener('click', () => {
-            // const productId = button.dataset.productId;
-            const { productId } = button.dataset;
-
-            const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
-
-            if (quantity) {
-                cart.addToCart(productId, quantity);
-                updateCartQuantity();
-
-            }
-            const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
-            addedMessage.classList.add('added-to-cart-visible');//adding a class to the message
-
-            // Check if there's a previous timeout for this product
-            const previousTimeoutId = addedMessageTimeouts[productId];
-            if (previousTimeoutId) {
-                clearTimeout(previousTimeoutId);//If there is, we should stop it
-            }
-
-            const timeoutId = setTimeout(() => {
-                addedMessage.classList.remove('added-to-cart-visible');
-            }, 2000);
-
-            // Save the timeoutId for this product so we can stop it later if we need to
-            addedMessageTimeouts[productId] = timeoutId;
-
-        });
     });
 
-//How do we know which product to add?
-//Data Attribute
-//-is just another HTML  attribute
-//-allows us to attach any information to an element
+    document.querySelector('.js-products-grid')
+        .innerHTML = productsHTML;
+    //to control added timeout
+    const addedMessageTimeouts = {};//each product will have its own timeoutId
 
+    function updateCartQuantity() {
+        document.querySelector('.js-cart-quantity')
+            .innerHTML = calculateCartQuantity();//update cart quantity on html
+    }
+
+    updateCartQuantity();//shows cart quantity when the page loads
+
+    document.querySelectorAll('.js-add-to-cart')
+        .forEach((button) => {//looping through the buttons
+            button.addEventListener('click', () => {
+                // const productId = button.dataset.productId;
+                const { productId } = button.dataset;
+
+                const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
+
+                if (quantity) {
+                    cart.addToCart(productId, quantity);
+                    updateCartQuantity();
+
+                }
+                const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
+                addedMessage.classList.add('added-to-cart-visible');//adding a class to the message
+
+                // Check if there's a previous timeout for this product
+                const previousTimeoutId = addedMessageTimeouts[productId];
+                if (previousTimeoutId) {
+                    clearTimeout(previousTimeoutId);//If there is, we should stop it
+                }
+
+                const timeoutId = setTimeout(() => {
+                    addedMessage.classList.remove('added-to-cart-visible');
+                }, 2000);
+
+                // Save the timeoutId for this product so we can stop it later if we need to
+                addedMessageTimeouts[productId] = timeoutId;
+
+            });
+        });
+
+    //How do we know which product to add?
+    //Data Attribute
+    //-is just another HTML  attribute
+    //-allows us to attach any information to an element
+}
