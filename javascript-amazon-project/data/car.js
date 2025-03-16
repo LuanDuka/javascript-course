@@ -49,6 +49,31 @@ class Car {
     }
 }
 
+class RaceCar extends Car {
+    acceleration;
+
+    constructor(carDetails) {
+        super(carDetails);
+        this.acceleration = carDetails.acceleration;
+    }
+
+    go() {
+        this.speed += this.acceleration;
+
+        if (this.speed > 300) {
+            this.speed = 300;
+        }
+    }
+
+    openTrunk() {
+        console.log('Race cars do not have a trunk.')
+    }
+
+    closeTrunk() {
+        console.log('Race cars do not have a trunk.')
+    }
+}
+
 
 /*
 const cars = [{
@@ -76,9 +101,15 @@ const car2 = new Car({
     brand: 'Tesla',
     model: 'Model 3'
 });
+const raceCar = new RaceCar({
+    brand: 'McLaren',
+    model: 'F1',
+    acceleration: 20
+});
 
 console.log(car1);
 console.log(car2);
+console.log(raceCar);
 //17b
 car1.displayInfo();
 car2.displayInfo();
@@ -89,7 +120,7 @@ car1.go();
 car1.brake();
 car1.displayInfo();
 
-// Trunk should not open since the car is moving.
+//17d Trunk should not open since the car is moving.
 car1.openTrunk();
 car1.displayInfo();
 
@@ -104,3 +135,12 @@ car2.openTrunk();
 // Car should not go since the trunk is open.
 car2.go();
 car2.displayInfo();
+//17e
+raceCar.go();
+raceCar.go();
+raceCar.go();
+raceCar.displayInfo();
+raceCar.openTrunk();
+raceCar.displayInfo();
+raceCar.brake();
+raceCar.displayInfo();
