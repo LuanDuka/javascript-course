@@ -1,7 +1,5 @@
-import { calculateCartQuantity, updateQuantity, } from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
-import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption, calculateDeliveryDate } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
@@ -143,7 +141,7 @@ export function renderOrderSummary() {
 
     function updateCartQuantity() {
         document.querySelector('.js-return-to-home-link')
-            .innerHTML = `${calculateCartQuantity()} items`;//update cart quantity on html
+            .innerHTML = `${cart.calculateCartQuantity()} items`;//update cart quantity on html
 
     }
     updateCartQuantity();
@@ -181,7 +179,7 @@ export function renderOrderSummary() {
                 );
                 container.classList.remove('is-editing-quantity');
 
-                updateQuantity(productId, newQuantity);
+                cart.updateQuantity(productId, newQuantity);
 
                 const quantityLabel = document.querySelector(
                     `.js-quantity-label-${productId}`

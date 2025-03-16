@@ -5,7 +5,6 @@ Main idea of JavaScrip
 3. Make it interactive
 */
 //data structure: combination of objects and arrays  
-import { calculateCartQuantity } from '../data/cart.js';
 import { products, loadProducts } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { cart } from '../data/cart-class.js';
@@ -78,7 +77,7 @@ function renderProductsGrid() {//group the conde into a function
 
     function updateCartQuantity() {
         document.querySelector('.js-cart-quantity')
-            .innerHTML = calculateCartQuantity();//update cart quantity on html
+            .innerHTML = cart.calculateCartQuantity();//update cart quantity on html
     }
 
     updateCartQuantity();//shows cart quantity when the page loads
