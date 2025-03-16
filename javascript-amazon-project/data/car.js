@@ -1,13 +1,13 @@
 //17a my solution
 class Car {
-    brand;
-    model;
+    #brand;
+    #model;
     speed;// You can set a default value for a property here, or in the constructor.
     isTrunkOpen = false;//boolean property
 
     constructor(carDetails) {
-        this.brand = carDetails.brand;
-        this.model = carDetails.model;
+        this.#brand = carDetails.brand;
+        this.#model = carDetails.model;
         this.speed = carDetails.speed || 0;// this.speed = 0; You can set a default value for a property here 
         this.isTrunkOpen = carDetails.isTrunkOpen;
     }
@@ -16,7 +16,7 @@ class Car {
         const trunkStatus = this.isTrunkOpen ? 'open' : 'closed';
 
         console.log(
-            `${this.brand} ${this.model}, Speed: ${this.speed} km/h, Trunk: ${trunkStatus}`
+            `${this.#brand} ${this.#model}, Speed: ${this.speed} km/h, Trunk: ${trunkStatus}`
         );
     }
 
