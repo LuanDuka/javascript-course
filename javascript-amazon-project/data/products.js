@@ -1,4 +1,5 @@
 import formatCurrency from "../js/utils/money.js";
+import { loadFromStorage } from "./cart.js";
 
 export function getProduct(productId) {
   let matchingProduct;
@@ -92,6 +93,8 @@ export function loadProductsFetch() {//fetch() is a better way to make HTTP requ
     });
 
     console.log('Products loaded');
+  }).catch((error) => {
+    console.log('Unexpected error. Please try again later.');
   });
 
   return promise;
@@ -121,7 +124,7 @@ export function loadProducts(fun) {//after we load the response, we gonna run th
     fun(); // Resolve the promise after loading products
   });
 
-  xhr.addEventListener('error', (error) => {
+  xhr.addEventListener('error', (error) => {//Set up a separate callback just for errors
     console.log('Unexpected error. Please try again later.');
   })
 
