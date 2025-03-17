@@ -6,7 +6,26 @@ import { loadCart } from '../data/cart-class.js';
 //import '../data/backend-practice.js';
 //import '../data/cart-class.js';
 
-//Promises
+//Async await is a shortcut for a promises
+//lets us use await: lets us wait for a promise to finish before going tothe next line
+async function loadPage() {//makes a function return a promise
+
+  await loadProductsFetch();//lets us write asynchronous code like normal code
+
+  await new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
+    });
+  });
+
+  renderCheckoutHeader();
+  renderOrderSummary();
+  renderPaymentSummary()
+
+}
+loadPage();
+
+/*Promises
 // - better way to handle asynchronous code
 // - similar to done() function
 // let us wait for some code to finish before going to the next step
@@ -28,6 +47,8 @@ Promise.all([//let us run multiple Promises at the same time
   renderOrderSummary();
   renderPaymentSummary();
 });
+*/
+
 /*
 new Promises((resolve) => {//when create, it's going to run this functions immediately
   loadProducts(() => {
