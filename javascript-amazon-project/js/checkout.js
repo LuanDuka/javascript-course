@@ -1,7 +1,7 @@
 import { renderCheckoutHeader } from './checkout/checkoutHeader.js';
 import { renderOrderSummary } from './checkout/orderSummary.js';
 import { renderPaymentSummary } from './checkout/paymentSummary.js';
-import { loadProducts } from '../data/products.js';
+import { loadProducts, loadProductsFetch } from '../data/products.js';
 import { loadCart } from '../data/cart-class.js';
 //import '../data/backend-practice.js';
 //import '../data/cart-class.js';
@@ -11,11 +11,12 @@ import { loadCart } from '../data/cart-class.js';
 // - similar to done() function
 // let us wait for some code to finish before going to the next step
 Promise.all([//let us run multiple Promises at the same time
-  new Promise((resolve) => {//when create, it's going to run this functions immediately
-    loadProducts(() => {
-      resolve('value1');
-    });
-  }),
+  loadProductsFetch(),
+  // new Promise((resolve) => {//when create, it's going to run this functions immediately
+  //   loadProducts(() => {
+  //     resolve('value1');
+  //   });
+  // }),
   new Promise((resolve) => {
     loadCart(() => {
       resolve();

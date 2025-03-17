@@ -1,6 +1,6 @@
 import { cart } from "../../data/cart-class.js";
 import { renderOrderSummary } from "../../js/checkout/orderSummary.js";
-import { loadProducts } from "../../data/products.js";
+import { loadProductsFetch } from "../../data/products.js";
 /*
 2 things to test:
     1. How the page looks
@@ -13,9 +13,9 @@ describe('test suite: renderOrderSummary', () => {
 
   beforeAll((done) => {//"done"function provid by Jasmine, don't automatically go to next step
     // Load products before running the tests
-    loadProducts().then(() => {//we need to wait loadProducts finish first
+    loadProductsFetch().then(() => {//we need to wait loadProducts finish first
       done();//lets us control when to go to the next step
-    })
+    });
   });
 
   beforeEach(() => {//Hook
