@@ -133,3 +133,14 @@ console.log(businessCart);
 
 console.log(businessCart instanceof Cart);
 
+export function loadCart(fun) {//after we load the response, we gonna run this fun(renderProductsGrid from amazon.js)
+    const xhr = new XMLHttpRequest();//new request object
+
+    xhr.addEventListener('load', () => {//wait for an event and run a function after
+        console.log(xhr.response);
+        fun();
+    });
+
+    xhr.open('GET', 'https://supersimplebackend.dev/cart');
+    xhr.send();
+}

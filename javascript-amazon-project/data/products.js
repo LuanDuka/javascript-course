@@ -76,31 +76,30 @@ class Appliances extends Product {
 export let products = [];
 
 export function loadProducts(fun) {//after we load the response, we gonna run this fun(renderProductsGrid from amazon.js)
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();//new request object
+  const xhr = new XMLHttpRequest();//new request object
 
-    xhr.addEventListener('load', () => {//wait for an event and run a function after
-      const productsData = JSON.parse(xhr.response);//convert back to an array
-      products = productsData.map((productDetails) => {
-        if (productDetails.type === 'clothing') {
-          return new Clothing(productDetails);
-        } else if (productDetails.type === 'appliance') {
-          return new Appliances(productDetails);
-        }
-        return new Product(productDetails);
-      });
-
-      console.log('Products loaded');
-      resolve(); // Resolve the promise after loading products
+  xhr.addEventListener('load', () => {//wait for an event and run a function after
+    const productsData = JSON.parse(xhr.response);//convert back to an array
+    products = productsData.map((productDetails) => {
+      if (productDetails.type === 'clothing') {
+        return new Clothing(productDetails);
+      } else if (productDetails.type === 'appliance') {
+        return new Appliances(productDetails);
+      }
+      return new Product(productDetails);
     });
 
-    xhr.addEventListener('error', () => {
-      reject(new Error('Failed to load products')); // Reject the promise on error
-    });
+    console.log('Products loaded');
 
-    xhr.open('GET', 'https://supersimplebackend.dev/products');
-    xhr.send();
+    fun(); // Resolve the promise after loading products
   });
+
+  xhr.addEventListener('error', (error) => {
+    console.log('Unexpected error. Please try again later.');
+  })
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
 }
 
 /* examples
