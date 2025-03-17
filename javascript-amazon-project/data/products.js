@@ -76,25 +76,31 @@ class Appliances extends Product {
 export let products = [];
 
 export function loadProducts(fun) {//after we load the response, we gonna run this fun(renderProductsGrid from amazon.js)
-  const xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
 
-  xhr.addEventListener('load', () => {
-    products = JSON.parse(xhr.response).map((productDetails) => {
-      if (productDetails.type === 'clothing') {
-        return new Clothing(productDetails);
-      } else if (productDetails.type === 'appliance') {
-        return new Appliances(productDetails);
-      }
-      return new Product(productDetails);
+    xhr.addEventListener('load', () => {
+      const productsData = JSON.parse(xhr.response);
+      products = productsData.map((productDetails) => {
+        if (productDetails.type === 'clothing') {
+          return new Clothing(productDetails);
+        } else if (productDetails.type === 'appliance') {
+          return new Appliances(productDetails);
+        }
+        return new Product(productDetails);
+      });
+
+      console.log('Products loaded');
+      resolve(); // Resolve the promise after loading products
     });
 
-    console.log('load products');
+    xhr.addEventListener('error', () => {
+      reject(new Error('Failed to load products')); // Reject the promise on error
+    });
 
-    fun();//after we load the response, we gonna run this fun
+    xhr.open('GET', 'https://supersimplebackend.dev/products');
+    xhr.send();
   });
-
-  xhr.open('GET', 'https://supersimplebackend.dev/products');
-  xhr.send();
 }
 
 /* examples

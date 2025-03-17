@@ -9,7 +9,13 @@ import { products, loadProducts } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { cart } from '../data/cart-class.js';
 
-loadProducts(renderProductsGrid);
+loadProducts()//Converted loadProducts to return a promise. A modern and cleaner approach to handling
+    .then(() => {
+        renderProductsGrid(); // Call renderProductsGrid after products are loaded
+    })
+    .catch((error) => {
+        console.error('Failed to load products:', error);
+    });
 
 function renderProductsGrid() {//group the conde into a function
     let productsHTML = '';
