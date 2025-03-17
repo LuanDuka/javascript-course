@@ -77,10 +77,10 @@ export let products = [];
 
 export function loadProducts(fun) {//after we load the response, we gonna run this fun(renderProductsGrid from amazon.js)
   return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();//new request object
 
-    xhr.addEventListener('load', () => {
-      const productsData = JSON.parse(xhr.response);
+    xhr.addEventListener('load', () => {//wait for an event and run a function after
+      const productsData = JSON.parse(xhr.response);//convert back to an array
       products = productsData.map((productDetails) => {
         if (productDetails.type === 'clothing') {
           return new Clothing(productDetails);

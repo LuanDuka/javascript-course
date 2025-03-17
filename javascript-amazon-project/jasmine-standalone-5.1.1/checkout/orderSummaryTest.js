@@ -11,10 +11,10 @@ describe('test suite: renderOrderSummary', () => {
     const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
     const productId2 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
 
-    beforeAll((done) => {
+    beforeAll((done) => {//"done"function provid by Jasmine, don't automatically go to next step
         // Load products before running the tests
-        loadProducts().then(() => {
-            done();
+        loadProducts().then(() => {//we need to wait loadProducts finish first
+            done();//lets us control when to go to the next step
         })
             .catch((error) => {
                 console.error('Failed to load products:', error);
