@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Inspeçã<object data="" type=""></object></title>
+  <link rel="stylesheet" href="forms-style.css">
+</head>
+
+<body>
+  <form>
+    <header>
+      <img class="img-logo" src="./img/surgicare-logo-sem-fundo.png" alt="">
+      <h1>FORMULÁRIO DE INSPEÇÃO - EQUIPAMENTO</h1>
+      <div class="version-doc">
+        <p>FOR01_PR-10 <br>
+          VERSÃO 02 <br>
+          VIGENTE
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <h2>RASTREABILIDADE</h2>
+
+      <div class=" data-sn-container ">
+        <div class=" data-container">
+          <span class="">1. DATA:</span>
+          <span class=" data-imput">____/____/2025</span>
+        </div>
+        <div class="serial-number-container">
+          <span class=" ">2. SN:</span>
+          <span class=" ">______________</span>
+        </div>
+      </div>
+
+      <div class="equipamento-container">
+        <span class="">3. EQUIPAMENTO:</span>
+
+        <div class="selection-box">
+          <input type="radio" id="radio1" name="radioGroup" value="1">
+          <label for="radio1">BOMBA DE INFUSÃO</label>
+        </div>
+
+        <div class="selection-box">
+          <input type="radio" id="radio2" name="radioGroup" value="2">
+          <label for="radio2">SURGIMAX </label>
+        </div>
+
+        <div class="selection-box">
+          <input type="radio" id="radio3" name="radioGroup" value="3">
+          <label for="radio3">WAVETRONIC</label>
+        </div>
+
+        <div class="selection-box">
+          <input type="radio" id="radio4" name="radioGroup" value="4">
+          <label for="radio4">CROSSFIRE</label>
+        </div>
+
+        <div class="selection-box">
+          <input type="radio" id="radio5" name="radioGroup" value="5">
+          <label for="radio5"><input type="text"></label>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>INSPEÇÃO</h2>
+      <label for="cars">Choose a car:</label>
+      <select name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <fieldset>
+        <h3>4. PADRÃO DO KIT DE EQUIPAMENTO</h3>
+        <p>CONFORME NC</p>
+
+        <p>BOMBA DE INFUSÃO</p>
+        <ul>
+          <li>CABO DE ENERGIA</li>
+          <li>FUSÍVEL RESERVA</li>
+          <li>CERTIFICADO</li>
+        </ul>
+
+        <p>CROSSFIRE</p>
+        <ul>
+          <li>PEDAL</li>
+        </ul>
+
+        <p>SURGIMAX</p>
+        <ul>
+          <li>ADAPTADOR</li>
+        </ul>
+
+        <p>WAVETRONIC</p>
+        <ul>
+          <li>PLACA DE ATERRAMENTO</li>
+        </ul>
+      </fieldset>
+
+      <fieldset>
+        <h3>5. HIGIENIZAÇÃO DO MATERIAL</h3>
+        <p>CONFORME NC</p>
+      </fieldset>
+
+      <fieldset>
+        <h3>6. TESTE DE FUNCIONAMENTO</h3>
+        <p>CONFORME NC</p>
+
+        <p>BOMBA DE INFUSÃO</p>
+        <ul>
+          <li>FLOW: 0,50 l/min</li>
+          <li>PRESSURE: 30 mm/hg</li>
+        </ul>
+
+        <p>CROSSFIRE</p>
+        <ul>
+          <li>MODO F - R</li>
+          <li>MODO OSCILANTE</li>
+          <li>PEÇA DE MÃO</li>
+        </ul>
+
+        <p>SURGIMAX / WAVETRONIC</p>
+        <ul>
+          <li>BIPOLAR: 35</li>
+          <li>TURBO: 35</li>
+        </ul>
+      </fieldset>
+
+      <fieldset>
+        <h3>7. INTEGRIDADE FÍSICA</h3>
+        <p>CONFORME NC</p>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="cabo-danificado">
+          <label for="cabo-danificado">CABO DANIFICADO</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="componente-soluto">
+          <label for="componente-soluto">COMPONENTE SOLTO</label>
+        </div>
+
+        <!-- Additional checkboxes would follow the same pattern -->
+
+        <p>OBS:</p>
+        <textarea rows="4" style="width: 100%;"></textarea>
+      </fieldset>
+    </section>
+
+    <section>
+      <h2>CONCLUSÃO DA LOGÍSTICA REVERSA</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>SELO</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SELO VERDE</td>
+            <td>APTO PARA UM NOVO PROCEDIMENTO</td>
+          </tr>
+          <tr>
+            <td>SELO AMARELO</td>
+            <td>FORA DO PADRÃO, PORÉM APTO PARA USO</td>
+          </tr>
+          <tr>
+            <td>SELO VERMELHO</td>
+            <td>INAPTO PARA UM NOVO PROCEDIMENTO</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <fieldset>
+        <h3>INSPECIONADO POR</h3>
+        <span class="input-field"></span>
+      </fieldset>
+    </section>
+
+    <footer>
+      <button type="submit">Enviar Formulário</button>
+    </footer>
+  </form>
+
+
+  <script type="module" src="forms-script.js"></script>
+</body>
+
+</html>
