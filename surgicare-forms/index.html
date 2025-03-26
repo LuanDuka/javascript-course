@@ -68,17 +68,33 @@
 
     <section>
       <h2>INSPEÇÃO</h2>
-      <label for="cars">Choose a car:</label>
+
+      <!-- <label for="cars">Choose a car:</label>
       <select name="cars" id="cars">
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
-      </select>
+      </select> -->
 
-      <fieldset>
-        <h3>4. PADRÃO DO KIT DE EQUIPAMENTO</h3>
-        <p>CONFORME NC</p>
+      <div class="inspection-container">
+
+        <div class="black-border default-nc-container">
+          <div class="default-container black-border">
+            <span>4. PADRÃO DO KIT DE EQUIPAMENTO</span>
+          </div>
+          <div class="nc-container">
+            <div class="selection-box black-border">
+              <input type="radio" id="radio1" name="radioGroup" value="1">
+              <label for="radio1">CONFORME</label>
+            </div>
+          </div>
+
+          <div class="selection-box black-border">
+            <input type="radio" id="radio2" name="radioGroup" value="2">
+            <label for="radio2">NC </label>
+          </div>
+        </div>
 
         <p>BOMBA DE INFUSÃO</p>
         <ul>
@@ -101,7 +117,7 @@
         <ul>
           <li>PLACA DE ATERRAMENTO</li>
         </ul>
-      </fieldset>
+      </div>
 
       <fieldset>
         <h3>5. HIGIENIZAÇÃO DO MATERIAL</h3>
