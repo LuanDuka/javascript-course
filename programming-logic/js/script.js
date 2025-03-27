@@ -1,4 +1,48 @@
+//Exemplo 2.3
+const formBuffet = document.querySelector("form");
+const totalPagar = document.querySelector("#totalPagar");
+
+formBuffet.addEventListener("submit", (e) => {
+  const priceQuilo = Number(formBuffet.inQuilos.value);
+  const priceGrama = priceQuilo / 1000;
+  const consumoCliente = Number(formBuffet.inConsumo.value);
+  const custoConsumo = priceGrama * consumoCliente;
+  totalPagar.innerText = `Valor a pagar R$:${custoConsumo}`;
+  e.preventDefault();
+
+})
+
+//Exemplo 2.2
+const form = document.querySelector("form");
+const modelo = document.querySelector('.modeloCarro');
+const condition = document.querySelector('.condition');
+
+form.addEventListener("submit", (e) => {
+  const titulo = form.inModelo.value;
+  const price = Number(form.inPrice.value);
+  const entrada = Math.floor(price * 0.5);
+  const parcelas = (price - entrada) / 12;
+  modelo.innerText = titulo;
+  condition.innerText = `Entrada de $${entrada.toFixed(2)} e 12 parcelas de $${parcelas.toFixed(2)}`
+  e.preventDefault();
+});
+// cria referência ao form e aos elementos h3 e h4 (resposta)
+const frm = document.querySelector("form")
+const resp1 = document.querySelector("h3")
+const resp2 = document.querySelector("h4")
+// cria um "ouvinte" de evento, acionado quando o botão submit for clicado
+frm.addEventListener("submit", (e) => {
+  const titulo = frm.inTitulo.value      // obtém conteúdo dos campos
+  const duracao = Number(frm.inDuracao.value)
+  const horas = Math.floor(duracao / 60)  // arredonda para baixo resultado
+  const minutos = duracao % 60           // obtém o resto da divisão
+  resp1.innerText = titulo               // exibe as respostas
+  resp2.innerText = `${horas} hora(s) e ${minutos} minuto(s)`
+  e.preventDefault()                     // evita envio do form
+})
+
 //Exemplo 2.1
+/*
 // cria referência ao form e ao elemento h3 (onde será exibida a resposta)
 const frm = document.querySelector("form");
 const resp = document.querySelector("h3"); // primeiro elemento h3 da página
@@ -12,7 +56,7 @@ frm.addEventListener("submit", (e) => {
 
 const cor = document.querySelector("#inCor")    // elemento com id=inCor
 const lista = document.querySelector(".lista")  // elemento da class=lista
-
+*/
 
 /*
 const nome = prompt("Qual é seu nome?");
