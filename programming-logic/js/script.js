@@ -1,3 +1,20 @@
+//Exemplo 2.10
+const formFarm = document.querySelector("form");
+const promoTitle = document.querySelector("#promoTitle");
+const promoNumber = document.querySelector("#promoNumber");
+
+formFarm.addEventListener("submit", (e) => {
+  const medicamento = formFarm.inMedicamento.value;
+  const price = Number(formFarm.inPrice.value);
+  const quantity = 2;
+  const totalPrice = (price * quantity);
+  const promoPrice = Math.floor(totalPrice);
+
+  promoTitle.innerText = `Promoção de ${medicamento}`;
+  promoNumber.innerText = `Leve 2 por apenas R$:${promoPrice.toFixed(2)}`;
+  e.preventDefault();
+})
+
 //Exemplo 2.3
 const formBuffet = document.querySelector("form");
 const totalPagar = document.querySelector("#totalPagar");
