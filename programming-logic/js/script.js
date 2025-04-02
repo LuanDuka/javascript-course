@@ -1,4 +1,18 @@
-//Exemplo 2.10
+//Exemplo 2.10 b
+const formLan = document.querySelector("form");
+const valorLan = document.querySelector("#valorLanHouse");
+
+formLan.addEventListener("submit", (e) => {
+  const valorUso15 = Number(formLan.inValor.value);
+  const clientUso = Number(formLan.inUso.value);
+  const periodo = Math.ceil(clientUso / 15);
+  const total = periodo * valorUso15;
+
+  valorLan.innerText = `Valor a Pagar R$: ${total.toFixed(2)}`;
+  e.preventDefault();
+})
+
+//Exemplo 2.10 a
 const formFarm = document.querySelector("form");
 const promoTitle = document.querySelector("#promoTitle");
 const promoNumber = document.querySelector("#promoNumber");

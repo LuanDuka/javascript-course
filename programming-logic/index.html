@@ -10,6 +10,21 @@
 
 <body>
 
+  <div>
+    <div>
+      <h2>Supermercado JS</h2>
+      <form>
+        <p>Produto:
+          <input type="text" id="inProdutoMerc" required>
+        </p>
+        <p>Preço R$:
+          <input type="number" id="inProduPrice" min="0" step="0.01" required>
+        </p>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+
   <div><!--Exemplo 2.10 b-->
     <div>
       <h2>Lan House JS</h2>
@@ -18,7 +33,7 @@
           <input type="number" id="inValor" min="0" setp="0.01" required>
         </p>
         <p>Tempo de uso do Cliente:
-          <input type="number" id="inTempo" min="0" required>
+          <input type="number" id="inUso" min="0" required>
         </p>
         <input type="submit" value="Calcular Valor a Pagar">
         <h3 id="valorLanHouse"></h3>
