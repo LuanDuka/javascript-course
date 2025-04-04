@@ -5,7 +5,9 @@ let time;
 
 if (depositCoin < 1) {
   change = depositCoin;
-  console.log("Deposit a valid amount: $1, $1,75,$3");
+  console.log(`Deposit a valid amount: $1, $1,75,$3
+  Time: ${time}
+  Change $: ${change}`);
   return;
 }
 
