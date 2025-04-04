@@ -7,7 +7,7 @@ const parcelMaxQuantity = 6;
 let parcelQuantity = 0;
 let parcelCost = 0;
 
-let parcel = Math.floor(totalShopping / parcelMinValue);
+let parcel = Math.floor(totalShopping / parcelMinValue);//number of parcel without conditions
 /*
 if (totalShopping % parcelMinValue != 0) {
   parcelQuantity++;
