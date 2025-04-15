@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monsthly Bills</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+  <img src="./img/ex5_9.jpg.png" alt="Números" class="alta">
+  <h1>Monsthly Bills Program</h1>
+
+  <form>
+    <p>Bill description:
+      <input type="text" id="inDescrition" required>
+    </p>
+    <p>Value to pay:
+      <input type="number" id="inValue" min="0" step="0.01" required>
+    </p>
+    <input type="submit" value="Register Bill">
+  </form>
+  <pre id="outResp1"></pre>
+  <pre id="outResp2"></pre>
+
+  <script src="./js/monsthly-bills.js"></script>
+</body>
+
+</html>
