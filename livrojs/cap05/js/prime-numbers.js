@@ -17,4 +17,7 @@ frm.addEventListener("submit", (e) => {
   } else {
     resp.innerText = `${num} Is not prime`
   }
+
+  frm.inNumber.value = "";
+  frm.inNumber.focus();
 })
