@@ -1,4 +1,60 @@
+const frm = document.querySelector("form");
+const respName = document.querySelector("span");
+const respList = document.querySelector("pre");
 
+const patients = [];
+
+frm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = frm.inPatient.value;
+  patients.push(name);
+  let list = "";
+  for (let i = 0; i < patients.length; i++) {
+    list += `${i + 1}.${patients[i]}\n`
+  }
+  respList.innerText = list;//show patient list
+  frm.inPatient.value = "";//clean form's input
+  frm.inPatient.focus();//put cursor on input
+})
+
+frm.btUrgency.addEventListener("click", () => {
+  //check if form's validation is ok
+  if (!frm.checkValidity()) {
+    alert("Please provide the name of the patient to be treated urgently.");
+    frm.inPatient.focus();
+    return;
+
+  }
+  const name = frm.inPatient.value;
+  patients.unshift(name);
+  let list = "";
+
+  patients.forEach((patient, i) => (
+    list += `${i + 1}.${patient}\n`));
+  respList.innerText = list;
+  frm.inPatient.value = "";
+  frm.inPatient.focus();
+})
+
+frm.btAttend.addEventListener("click", () => {
+  //check if array is = 0
+  if (patients.length == 0) {
+    alert("There are no patients on the waiting list");
+    frm.inPatient.focus();
+    return;
+  }
+  const attend = patients.shift()//remove from top of list
+  respName.innerText = attend;
+  let list = "";
+  patients.forEach((patient, i) => (list += `${i + 1}.${patient}\n`));
+  respList.innerText = list;
+})
+
+
+
+
+
+/*
 const cidades = ["Pelotas"]  // declara e define conteúdo inicial do vetor
 cidades.push("São Lourenço")  // adiciona cidade ao final do vetor
 console.log(cidades)          // ['Pelotas', 'São Lourenço']
@@ -35,3 +91,4 @@ for (const cidade of cidades) {
 cidades.forEach((cidade, i) => {
   console.log(`${i + 1}ª Cidade: ${cidade}`)
 })
+  */
