@@ -30,7 +30,7 @@ frm.addEventListener("submit", (e) => {
 
       if (numChances == 0) {
         alert("Your chances are over...");
-        frm.btSubmit.disable = true;
+        frm.btSubmit.disabled = true;
         frm.btNew.className = "exibe";
         respTip.innerText = `Game Over!! Lucky Number: ${raffled}`
 
