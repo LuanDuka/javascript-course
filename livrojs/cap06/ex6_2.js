@@ -13,7 +13,7 @@ frm.addEventListener("submit", (e) => {
 
   if (number == raffled) {
     respTip.innerText = `Congratulations!! Right number: ${raffled}`;
-    frm.btSubmit.disable = true;//change button status
+    frm.btSubmit.disabled = true;//change button status
     frm.btNew.className = "exibe";
 
   } else {
@@ -43,4 +43,8 @@ frm.addEventListener("submit", (e) => {
   }
   frm.inNumber.value = "";
   frm.inNumber.focus();
+
+  frm.btNew.addEventListener("click", () => {
+    location.reload()
+  })
 })
