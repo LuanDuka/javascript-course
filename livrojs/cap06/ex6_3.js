@@ -15,7 +15,7 @@ frm.addEventListener("submit", (e) => {
 })
 
 frm.btList.addEventListener("click", () => {
-  if (cars.lenth == 0) {
+  if (cars.length == 0) {
     alert("There're no cars in the list");
     return;
 
