@@ -1,7 +1,7 @@
 const frm = document.querySelector("form");
 const resp = document.querySelector("pre");
 
-const children = []; //declare global array
+const children = []; //declare global array test
 
 frm.addEventListener("submit", (e) => {
   e.preventDefault(); //prevent send the form
