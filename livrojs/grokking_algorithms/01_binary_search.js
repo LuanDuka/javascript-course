@@ -1,4 +1,4 @@
-/**
+/*
  * Searches recursively number from the list
  * @param {Array} list Source array
  * @param {number} item Search item
