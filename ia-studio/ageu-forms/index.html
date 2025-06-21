@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Dinâmico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+      <h2 id="question-text">Texto da Pergunta</h2>
+      <div id="answer-buttons" class="btn-group">
+        <!-- Os botões de resposta serão inseridos aqui pelo JavaScript -->
+      </div>
+    </div>
+
+    <div id="results-container" class="hidden">
+      <h2>Resultados Finais</h2>
+      <ul id="results-list">
+        <!-- A lista de respostas dadas será inserida aqui -->
+      </ul>
+      <button id="restart-btn">Recomeçar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
