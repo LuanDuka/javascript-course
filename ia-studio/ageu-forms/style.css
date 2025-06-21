@@ -98,3 +98,62 @@ body {
 .hidden {
   display: none;
 }
+
+/* ... (todo o CSS anterior) ... */
+
+/* Estilos Adicionais para Login */
+#login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#login-container h1 {
+  margin-bottom: 10px;
+}
+
+#login-btn {
+  background-color: #db4437;
+  /* Cor do Google */
+  margin-top: 20px;
+  padding: 15px 30px;
+}
+
+#login-btn:hover {
+  background-color: #c23321;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+}
+
+#user-display {
+  font-weight: bold;
+}
+
+#logout-btn {
+  background: none;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#logout-btn:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}

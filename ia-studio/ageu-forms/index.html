@@ -4,28 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário Dinâmico</title>
+  <title>Formulário com Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="quiz-container" id="quiz">
-    <div class="quiz-header">
-      <h2 id="question-text">Texto da Pergunta</h2>
-      <div id="answer-buttons" class="btn-group">
-        <!-- Os botões de resposta serão inseridos aqui pelo JavaScript -->
-      </div>
+  <!-- Container de Login (visível quando deslogado) -->
+  <div id="login-container">
+    <h1>Bem-vindo ao Quiz!</h1>
+    <p>Faça login com sua conta Google para começar.</p>
+    <button id="login-btn" class="btn">Entrar com Google</button>
+  </div>
+
+  <!-- Container Principal do Quiz (visível quando logado) -->
+  <div id="app-container" class="hidden">
+
+    <div class="user-info">
+      <span id="user-display"></span>
+      <button id="logout-btn">Sair</button>
     </div>
 
-    <div id="results-container" class="hidden">
-      <h2>Resultados Finais</h2>
-      <ul id="results-list">
-        <!-- A lista de respostas dadas será inserida aqui -->
-      </ul>
-      <button id="restart-btn">Recomeçar</button>
+    <div class="quiz-container" id="quiz">
+      <div class="quiz-header">
+        <h2 id="question-text">Texto da Pergunta</h2>
+        <div id="answer-buttons" class="btn-group">
+          <!-- Botões de resposta -->
+        </div>
+      </div>
+
+      <div id="results-container" class="hidden">
+        <h2>Resultados Finais</h2>
+        <ul id="results-list">
+          <!-- Lista de resultados -->
+        </ul>
+        <button id="restart-btn">Recomeçar</button>
+      </div>
     </div>
   </div>
+
+  <!-- Scripts do Firebase - IMPORTANTE -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
 
   <script src="script.js"></script>
 </body>
