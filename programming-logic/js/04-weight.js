@@ -16,15 +16,16 @@ form.addEventListener("submit", (e) => {
     }
   */
 
-  const weight = male ? weitgh = 22 * Math.pow(height, 2) : weitgh = 21 * Math.pow(height, 2);
+  const weight = male ? 50 + 2.3 * Math.pow(height, 2) : 45.5 + 2.3 * Math.pow(height, 2);
 
-  resp.innerText = `${name}: You ideal weight is ${weitgh.toFixed(3)} kg`;
+  resp.innerText = `${name}: You ideal weight is ${(weight.toFixed(3) / 1000)} kg`;
 })
 
 form.addEventListener("reset", () => {
   resp.innerText = "";
 })
 
+/*
 const bairro = prompt("Bairro de Entrega: ")
 let taxaEntrega
 switch (bairro) {
@@ -42,3 +43,4 @@ switch (bairro) {
     taxaEntrega = 8.00
 }
 alert(`Taxa R$: ${taxaEntrega.toFixed(2)}`)
+*/
