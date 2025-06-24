@@ -17,6 +17,9 @@ do {
   } else {
     console.log(`The triple of ${num} is: ${num * 3}`)
   }
+
+  console.log(message);
+
 } while (true)
 console.log("Bye, bye...")
 
