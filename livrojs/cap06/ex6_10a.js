@@ -1,5 +1,5 @@
 const prompt=require("prompt-sync")()
-console.log("Inform the students. Then, type 'End' next to their name to exit")
+console.log("Enter the students. Then, type ‘End’ in the name field to exit.")
 const students=[] // declare vector
 do{
   const name = prompt("Name: ") // read name
